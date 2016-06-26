@@ -178,6 +178,7 @@ a {
         }
         .intro-text {
             font-size: 18px;
+            background-color: rgba(0, 0, 0, 0.25);
             @if $navbar-text-shadow {
                 text-shadow: 1px 0 1px #000;
             }
