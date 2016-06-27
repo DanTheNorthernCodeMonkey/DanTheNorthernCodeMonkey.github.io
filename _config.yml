@@ -12,7 +12,7 @@ url: "https://DanTheNorthernCodeMonkey.github.io"
 #
 # NB! Without this *nothing* will work, because it's used in every path :)
 
-baseurl: https://DanTheNorthernCodeMonkey.github.io/
+baseurl: https://DanTheNorthernCodeMonkey.github.io
 
 # Google tracking id
 
@@ -39,7 +39,7 @@ favicon: "/img/favicon.ico"
 # Header layout #
 ################
 
-black-favicon: "/img/black-lab-glass.ico"
+black-favicon: "/img/favicon.ico"
 
 background-img: "../img/marketsquare.jpg"
 
@@ -52,8 +52,8 @@ shuffle: false # Shuffle the lines.
 loop: True
 loop-count: False # Set False for infinite loop, or set any number for finite loop.
 type-speed: 10
-start-delay: 200
-delete-delay: 5000
+start-delay: 100
+delete-delay: 4000
 lines: # You can add HTML Tags in the Text
   - text: "Welcome"
   - text: "Bienvenue"
@@ -104,7 +104,7 @@ pinterest-share: False
 pocket-share: False
 vkontakte-share: False
 
-disqus-shortname: "panossakkos"
+disqus-shortname: "DanTheNorthernCodeMonkey"
 
 syntax-highlight: True
 
