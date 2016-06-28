@@ -30,16 +30,16 @@ force-https: True
 
 lang: "en"
 author: "Dan Shea"
-title: "{ Dan Shea }"
+title: "Dan Shea"
 description: "On a quest for knowledge on all the bits."
 keywords: "shea, dan, NorthernCodeMonkey, art, tech"
-favicon: "/img/favicon.ico"
+favicon: "/img/icons/favicon.svg"
 
 ################
 # Header layout #
 ################
 
-black-favicon: "/img/favicon.ico"
+black-favicon: "/img/icons/monkey-lightblue.svg"
 
 background-img: "../img/marketsquare.jpg"
 
@@ -87,9 +87,9 @@ icon-192p: "/img/web-app/icon-192p.png"
 # Blog #
 ########
 
-enable-gesture-navigation: True
+enable-gesture-navigation: False
 
-post-preview-words: 96
+post-preview-words: 150
 
 paginate: 5
 
@@ -113,19 +113,19 @@ syntax-highlight: True
 ############
 
 events:
-  - image: "/img/timeline/spidertocat.png"
+  - image: "/img/icons/monkey-turqouise.svg"
     date: "September 2012"
     description: "Started coding"
-  - image: "/img/timeline/default.png"
+  - image: "/img/icons/monkey-lime.svg"
     date: "June 2015"
     description: "Started at UNiDAYS"
-  - image: "/img/timeline/baracktocat.jpg"
+  - image: "/img/icons/monkey-orange.svg"
     date: "July 2015"
     description: "Swam the English Channel"
 
 # First image of the Timeline
 
-timeline-img: "/img/timeline/default.png"
+timeline-img: "/img/icons/monkey-red.svg"
 
 ###########
 # Contact #
