@@ -448,10 +448,6 @@ body {
 }
 
 .logo {
-    height: 50px;
-    width: 50px;
-    @media(max-width:400px) {
-        height: 25px;
-        width: 25px;
-    }
+    height: 25px;
+    width: 25px;
 }
