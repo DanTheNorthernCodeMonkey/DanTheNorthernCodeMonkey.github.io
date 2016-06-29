@@ -9,13 +9,13 @@ tags: [ 'drawing' ]
 Well I iterated on where I left off in the last post:
 
 <a href="/img/drawing/starting/start-draw-03.jpg" alt="stage 1 drawings">
-<img src="/img/drawing/starting/start-draw-03.jpg" style="width: 298px; height: 512px;" />
+<img src="/img/drawing/starting/start-draw-03-small.jpg" />
 </a>
 
 And I royally screwed the eyes up. Luckily I percivered, and managed to get to a state wherby I was happy enough with the finished drawing:
 
 <a href="/img/drawing/starting/start-draw-05.jpg" alt="stage 1 drawings">
-<img src="/img/drawing/starting/start-draw-05.jpg" style="width: 298px; height: 512px;" />
+<img src="/img/drawing/starting/start-draw-05-small.jpg"/>
 </a>
 
 The finishing touches really took the longest. There was a lot of rubbing out, and complete redraws of a few areas as well.

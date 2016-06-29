@@ -113,19 +113,31 @@ syntax-highlight: True
 ############
 
 events:
+  - image: "/img/icons/monkey-lightblue.svg"
+    date: "September 2009 - May 2012 "
+    description: "LLB Law with Business"
   - image: "/img/icons/monkey-turqouise.svg"
-    date: "September 2012"
-    description: "Started coding"
+    date: "September 2012 - October 2013"
+    description: "Msc Management of Information Technology"
   - image: "/img/icons/monkey-lime.svg"
-    date: "June 2015"
+    date: "October 2013"
+    description: "Started Graduate Dev Job"
+  - image: "/img/icons/monkey-yellow.svg"
+    date: "October 2013"
     description: "Started at UNiDAYS"
   - image: "/img/icons/monkey-orange.svg"
     date: "July 2015"
     description: "Swam the English Channel"
+  - image: "/img/icons/monkey-red.svg"
+    date: "July 2015"
+    description: "Got Lean"
+  - image: "/img/icons/monkey-yellow.svg"
+    date: "Now"
+    description: "Got fat again lol"
 
 # First image of the Timeline
 
-timeline-img: "/img/icons/monkey-red.svg"
+timeline-img: "/img/icons/monkey-lightblue.svg"
 
 ###########
 # Contact #
@@ -160,7 +172,7 @@ social:
 # 404 page #
 ############
 
-404-img: "/img/labtocat.png"
+404-img: "/img/icons/monkey-lightblue.svg"
 
 ################################################################################
 

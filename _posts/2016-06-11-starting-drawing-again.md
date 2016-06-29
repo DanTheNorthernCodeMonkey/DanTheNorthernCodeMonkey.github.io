@@ -29,7 +29,7 @@ Typical to my impulsive habits I walked out with 3 art technique books, a set of
 I obviously started with the fantasy art book first. 
 
 <a href="/img/drawing/starting/start-draw-01.jpg" alt="stage 1 drawings">
-<img src="/img/drawing/starting/start-draw-01.jpg" style="width: 298px; height: 512px;" />
+<img src="/img/drawing/starting/start-draw-01-small.jpg" />
 </a>
 
 This was my first attempt, about an hour in. I admit that it took way longer than it should have to get to this point but in my defence the author states that getting the stance correct is vital, and I redid that about 20 times and I'm still not happy with it.

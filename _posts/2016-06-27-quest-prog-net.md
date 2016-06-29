@@ -6,7 +6,7 @@ category: tech
 tags: [ 'Progressive .NET' ]
 ---
 
-#Preamble
+Preamble
 
 My quest began unexpectedly, deep within the QA of a ticket that was producing a dreaded deadlock.
 
@@ -17,7 +17,7 @@ I instantly responded with something along the lines of "I'm game for that.” i
 
 Matt (a colleague) and I got booked into the conference at super late notice, and had to manically rush to find a decent deal for a hotel, most of which had sold out of twin rooms. We discussed broadening the search to include double rooms but sadly the prospect of spooning was not to be, as we lucked out and got a cracking deal on a twin room near kings cross, winning.
 
-#Actual Quest
+Actual Quest
 
 Progessive .Net was ran over 3 days, with a varying format for each day, but consistently had two talks on at once, meaning Matt and I had to split up for the majority of the blocks so that we could get the most out of the conference. [Programme Details](https://skillsmatter.com/conferences/7235-progressive-dot-net-tutorials-2016#program)
 
