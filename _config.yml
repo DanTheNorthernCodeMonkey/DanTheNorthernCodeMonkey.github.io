@@ -89,7 +89,7 @@ icon-192p: "/img/web-app/icon-192p.png"
 
 enable-gesture-navigation: False
 
-post-preview-words: 150
+post-preview-words: 86
 
 paginate: 5
 
@@ -122,6 +122,9 @@ events:
   - image: "/img/icons/monkey-lime.svg"
     date: "October 2013"
     description: "Started Graduate Dev Job"
+  - image: "/img/icons/monkey-lightblue.svg"
+    date: "October 2014"
+    description: "Got Engaged"
   - image: "/img/icons/monkey-yellow.svg"
     date: "October 2013"
     description: "Started at UNiDAYS"

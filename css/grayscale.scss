@@ -275,6 +275,10 @@ a {
             border: 0px;
             margin-bottom: 20px;
             padding: 4px;
+            border: 7px solid #f1f1f1;
+            border-radius: 100%;
+            background: #f1f1f1;
+            color: #fff;
         }
     }
 }
@@ -304,6 +308,29 @@ a {
 
 /* Added in { Personal } */
 ul.social-buttons li a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    font-size: 20px;
+    line-height: 40px;
+    outline: 0;
+    color: $social-buttons-color;
+    background-color: #222;
+
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: #222;
+        background-color: darken($social-buttons-color, 10%);
+    }
+}
+
+post-social {
     display: block;
     width: 40px;
     height: 40px;
