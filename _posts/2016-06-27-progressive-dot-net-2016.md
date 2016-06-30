@@ -69,6 +69,7 @@ However I did get rumbled on a small bit of syntax, as did Matt, which highlight
 
 The javascript promises part was very high level, but it's relatively simple in comparison the .Net implementation anyway.
 
+Links to github repo, Dylan's twitter and blog:
 <ul class="list-inline social-buttons">
 
 <li><a target="_blank" href="https://github.com/dylanbeattie/ProgNet2016"><i class="fa fa-github fa-fw"></i></a></li> 
