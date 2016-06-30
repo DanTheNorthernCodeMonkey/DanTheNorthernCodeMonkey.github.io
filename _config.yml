@@ -122,25 +122,28 @@ events:
   - image: "/img/icons/monkey-lime.svg"
     date: "October 2013"
     description: "Started Graduate Dev Job"
-  - image: "/img/icons/monkey-lightblue.svg"
+  - image: "/img/icons/monkey-yellow.svg"
     date: "October 2014"
     description: "Got Engaged"
-  - image: "/img/icons/monkey-yellow.svg"
-    date: "October 2013"
-    description: "Started at UNiDAYS"
   - image: "/img/icons/monkey-orange.svg"
-    date: "July 2015"
-    description: "Swam the English Channel"
+    date: "June 2013"
+    description: "Started at mid dev UNiDAYS"
   - image: "/img/icons/monkey-red.svg"
     date: "July 2015"
+    description: "Swam the English Channel"
+  - image: "/img/icons/monkey-lightblue.svg"
+    date: "July 2015"
+    description: "Senior dev UNiDAYS"
+  - image: "/img/icons/monkey-turqouise.svg"
+    date: "July 2015"
     description: "Got Lean"
-  - image: "/img/icons/monkey-yellow.svg"
+  - image: "/img/icons/monkey-lime.svg"
     date: "Now"
     description: "Got fat again lol"
 
 # First image of the Timeline
 
-timeline-img: "/img/icons/monkey-lightblue.svg"
+timeline-img: "/img/icons/monkey-yellow.svg"
 
 ###########
 # Contact #
