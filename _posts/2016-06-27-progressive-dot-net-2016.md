@@ -16,6 +16,7 @@ Progessive .Net Tutorials was ran over 3 days, with a varying format for each da
 [Programme details here](https://skillsmatter.com/conferences/7235-progressive-dot-net-tutorials-2016#program)
 
 ---
+<h1 class="brand-heading">&nbsp;</h1>
 
 ## Skills Matter HQ
 
@@ -26,6 +27,7 @@ Skills matter have recently moved digs and they are pretty shweet.
 ![img title](/img/progressive-dot-net-tutorials/prog-net-01.jpg)
 
 ---
+<h1 class="brand-heading">&nbsp;</h1>
 
 ## Talks Review
 
@@ -54,6 +56,7 @@ Links to github repo, Ian's twitter and blog:
 ![Ian's Talk](/img/progressive-dot-net-tutorials/ian-talk-02.jpg)
 
 ---
+<h1 class="brand-heading">&nbsp;</h1>
 
 ### The Asynchronous Age: A Developer's Illustrated Primer - Dylan Beattie
 
@@ -82,6 +85,7 @@ Links to github repo, Dylan's twitter and blog:
 ![Dylan's Talk](/img/progressive-dot-net-tutorials/dylan-talk-02.jpg)
 
 ---
+<h1 class="brand-heading">&nbsp;</h1>
 
 ## Conclusion
 
