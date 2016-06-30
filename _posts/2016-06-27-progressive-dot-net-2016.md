@@ -9,9 +9,9 @@ tags: [ 'Progressive .NET' ]
 
 ## Preamble
 
-I recently attended Progressive .Net Tutorials by Skills Matter. Matt (a colleague) and I got booked into the conference at super late notice, and had to manically rush to find a decent deal for a hotel, most of which had sold out of twin rooms. We discussed broadening the search to include double rooms but sadly the prospect of spooning was not to be, as we lucked out and got a cracking deal on a twin room near kings cross, winning.
+I recently attended Progressive .Net Tutorials by Skills Matter. A colleague and I got booked into the conference at super late notice and had to manically rush to find a decent deal for a hotel, most of which had sold out of twin rooms. We discussed broadening the search to include double rooms but sadly the prospect of spooning was not to be, as we lucked out and got a cracking deal on a twin room near kings cross, winning.
 
-Progessive .Net was ran over 3 days, with a varying format for each day, but consistently had two talks on at once, meaning Matt and I had to split up for the majority of the blocks so that we could get the most out of the conference. 
+Progessive .Net Tutorials was ran over 3 days, with a varying format for each day, but consistently had two talks on at once, meaning Matt and I had to split up for the majority of the blocks so that we could get the most out of the conference. 
 
 [Programme details here](https://skillsmatter.com/conferences/7235-progressive-dot-net-tutorials-2016#program)
 
@@ -19,7 +19,7 @@ Progessive .Net was ran over 3 days, with a varying format for each day, but con
 
 ## Skills Matter HQ
 
-Skills matter have recent moved digs and they are pretty shweet.
+Skills matter have recently moved digs and they are pretty shweet.
 
 ![img title](/img/progressive-dot-net-tutorials/prog-net-02.jpg)
 
@@ -41,6 +41,7 @@ However the retry's coupled with circuit breakers was something new that I'm def
 
 Ian used his own open source library throughout the talk, giving an overview, showed the code in action then took Q&A after each section. I felt that this was definitely the best structured talk of the event and that the pace was on point.
 
+Links to github repo, Ian's twitter and blog:
 <ul class="list-inline social-buttons">
 
 <li><a target="_blank" href="https://github.com/iancooper/Availability-Tutorial"><i class="fa fa-github fa-fw"></i></a></li> 
