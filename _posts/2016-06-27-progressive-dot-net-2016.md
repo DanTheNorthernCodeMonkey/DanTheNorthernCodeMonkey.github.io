@@ -11,7 +11,7 @@ tags: [ 'Progressive .NET' ]
 
 I recently attended Progressive .Net Tutorials by Skills Matter. A colleague and I got booked into the conference at super late notice and had to manically rush to find a decent deal for a hotel, most of which had sold out of twin rooms. We discussed broadening the search to include double rooms but sadly the prospect of spooning was not to be, as we lucked out and got a cracking deal on a twin room near kings cross, winning.
 
-Progessive .Net Tutorials was ran over 3 days, with a varying format for each day, but consistently had two talks on at once, meaning Matt and I had to split up for the majority of the blocks so that we could get the most out of the conference. 
+Progessive .Net Tutorials was ran over 3 days, with a varying format for each day, but consistently had two talks on at once, meaning we had to split up for the majority of the blocks so that we could get the most out of the conference. 
 
 [Programme details here](https://skillsmatter.com/conferences/7235-progressive-dot-net-tutorials-2016#program)
 
@@ -65,7 +65,7 @@ Dylan's character provided for a geniunely enteraining delivery. He would most c
 
 The talk was relatively high level and I would have loved a longer talk so that we could have got into the gritty stuff, like dead locks, synchronisation context, how the framework breaks up the async await code into multi-methods with call backs etc. But async await is a beast of a subject, and within the time frame it was a good level of detail.
 
-However I did get rumbled on a small bit of syntax, as did Matt, which highlighted to me that outside out our mature code base wherein we abide to a known code style that I can get stuck. I did manage to resolve the issue quite quickly without googling but it really struck me that I need to code more outside of my natural habitat. 
+However I did get rumbled on a small bit of syntax, as did my colleague, which highlighted to me that outside out our mature code base wherein we abide to a known code style that I can get stuck. I did manage to resolve the issue quite quickly without googling but it really struck me that I need to code more outside of my natural habitat. 
 
 The javascript promises part was very high level, but it's relatively simple in comparison the .Net implementation anyway.
 
