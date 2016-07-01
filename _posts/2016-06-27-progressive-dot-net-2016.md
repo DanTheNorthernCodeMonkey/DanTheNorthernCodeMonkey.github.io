@@ -1,7 +1,7 @@
 ---
 layout: post
 section-type: post
-title: Quest For Knowledge - Review of Progressive .Net Tutorials Episode 1
+title: Quest For Knowledge - Review of Progressive .Net Tutorials 2016 Episode 1
 category: tech
 tags: [ 'Progressive .NET' ]
 ---
