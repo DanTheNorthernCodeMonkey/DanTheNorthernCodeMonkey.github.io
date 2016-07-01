@@ -68,7 +68,7 @@ Dylan's character provided for a geniunely enteraining delivery. He would most c
 
 The talk was relatively high level and I would have loved a longer talk so that we could have got into the gritty stuff, like dead locks, synchronisation context, how the framework breaks up the async await code into multi-methods with call backs etc. But async await is a beast of a subject, and within the time frame it was a good level of detail.
 
-However I did get rumbled on a small bit of syntax, as did my colleague, which highlighted to me that outside out our mature code base wherein we abide to a known code style that I can get stuck. I did manage to resolve the issue quite quickly without googling but it really struck me that I need to code more outside of my natural habitat. 
+Even though this was high level I did get rumbled on a small bit of syntax, as did my colleague. I did manage to resolve the issue quite quickly without googling but it really struck me that I need to code more outside of my natural habitat. 
 
 The javascript promises part was very high level, but it's relatively simple in comparison the .Net implementation anyway.
 
