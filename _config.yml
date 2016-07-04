@@ -108,6 +108,8 @@ disqus-shortname: "DanTheNorthernCodeMonkey"
 
 syntax-highlight: True
 
+highlighter: pygments
+
 ############
 # Timeline #
 ############
@@ -126,7 +128,7 @@ events:
     date: "October 2014"
     description: "Got Engaged"
   - image: "/img/icons/monkey-orange.svg"
-    date: "June 2013"
+    date: "June 2015"
     description: "Started at mid dev UNiDAYS"
   - image: "/img/icons/monkey-red.svg"
     date: "July 2015"
