@@ -3,7 +3,7 @@
 
 # NB! Set your site's url, otherwise stuff will break :)
 
-url: "http://www.danthenortherncodemonkey.com"
+url: "https://www.danthenortherncodemonkey.com"
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (https://yourusername.github.io/repository-name)
@@ -12,7 +12,7 @@ url: "http://www.danthenortherncodemonkey.com"
 #
 # NB! Without this *nothing* will work, because it's used in every path :)
 
-baseurl: http://www.danthenortherncodemonkey.com
+baseurl: https://www.danthenortherncodemonkey.com
 
 # Google tracking id
 
@@ -22,7 +22,7 @@ google-tracking-id: "UA-80165946-1"
 # If you are not hosted on Github Pages, and your host doesn't support https
 # then you should disable it
 
-force-https: False
+force-https: True
 
 #############
 # HTML Head #
