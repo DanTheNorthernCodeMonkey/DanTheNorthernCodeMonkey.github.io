@@ -108,7 +108,7 @@ disqus-shortname: "DanTheNorthernCodeMonkey"
 
 syntax-highlight: True
 
-highlighter: pygments
+highlighter: rouge
 
 ############
 # Timeline #

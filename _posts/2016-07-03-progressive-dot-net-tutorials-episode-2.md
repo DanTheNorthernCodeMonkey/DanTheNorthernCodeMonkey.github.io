@@ -12,7 +12,7 @@ tags: [ 'Progressive .NET' ]
  
  The session had a scenario wherein we had a robot on Mars that was malfunctioning. It was up to us to get him to send a message through machine learning techniques. This was broken down into 3 solutions, the speaker gave a brief intro before each one and then got us working on them. The format was really engaging, each soluction had a scenario file with code that had blanks that we had to fill in to complete the mission, almost like the comprehension tasks you did back in school: 
 
-{% highlight fsharp %}
+{% highlight csharp %}
 
 // c) In F# we use map, which is similar to Select
 // in Linq, here you need to use map on neighbours
@@ -30,7 +30,7 @@ let bestCandidate current getElevation =
 
 Here's an example of this section completed:
 
-{% highlight fsharp %}
+{% highlight csharp %}
 let bestCandidate current getElevation = 
     neighbours current
     |> List.map (fun x -> newState current getElevation x)
@@ -40,9 +40,9 @@ let bestCandidate current getElevation =
 
 After completing a task you ran the F# tests, using F# interactive (think console in developer tools), giving immediate feedback on your progress:
 
-{% highlight fsharp %}
+{% highlight csharp %}
 
-let ``Calling findHigherPoint should elevate Freddy to 2847.257974 (metres)`` () =
+let Calling findHigherPoint should elevate Freddy to 2847.257974 (metres) () =
     let expected = 2847.257974
     let bestCandidate = findHigherPoint initialState getElevation
     let bestElevation = bestCandidate.Elevation
@@ -96,17 +96,8 @@ FML, really? Fuck prestiging I may as well reboot, regress into a fetus and star
 
 If haven't inferred already I was pretty blown away by this talk, and Trelford's energy in general. I genuinely love meeting people like this, I've had the pleasure to have worked with other talented engineers who just exude enthusiasm for the craft and they all made me want to code more, learn more, be a better me. This talk left me with that.
 
-
-
 * Go into further details of AST
 * DSLs
 * FParsec
 * Trelfords background as a Game Programmer DSLs etc.
 * Trelford did not go to university
-
-
-* Sean gave a talk at a conference, slightly demoralising that a child is accomplishing more than myself, but very uplifting, it's stuff like this that's kicked my arse into blogging, and behind the scenes working on talks for meetups.
-
-* Wrote a parser for C#, in a couple of hours, friend then made a compiler, that includes features that the C# team planned on doing but dropped.
-
-* 
