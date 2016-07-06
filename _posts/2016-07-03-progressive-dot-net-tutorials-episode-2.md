@@ -30,7 +30,7 @@ let bestCandidate current getElevation =
 
 Here's an example of this section completed:
 
-{% highlight csharp %}
+{% highlight haskell %}
 let bestCandidate current getElevation = 
     neighbours current
     |> List.map (fun x -> newState current getElevation x)
@@ -40,7 +40,7 @@ let bestCandidate current getElevation =
 
 After completing a task you ran the F# tests, using F# interactive (think console in developer tools), giving immediate feedback on your progress:
 
-{% highlight csharp %}
+{% highlight haskell %}
 
 let Calling findHigherPoint should elevate Freddy to 2847.257974 (metres) () =
     let expected = 2847.257974
