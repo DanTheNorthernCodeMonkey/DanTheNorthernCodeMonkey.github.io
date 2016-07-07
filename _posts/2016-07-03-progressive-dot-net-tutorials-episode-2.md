@@ -67,7 +67,7 @@ Finally the speaker also opened up his training company's private repository for
 
 ## Build a compiler in hours - Phil Trelford
 
-The afternoon was with Phil Trelford, Dom - [Dominic Finn](https://twitter.com/CleverFinn?lang=en-gb "Dominic Finn twitter") had told me to absorb all of the knowledges from Trelford. I instantly understood why when I went into his talk, he comes across as very intelligent but also a bit of a joker, someone that you definitely want to learn from.
+The afternoon was with Phil Trelford, [Dominic Finn](https://twitter.com/CleverFinn?lang=en-gb "Dominic Finn twitter") had told me to absorb all of the knowledges from Trelford. I instantly understood why when I went into his talk, he comes across as very intelligent but also a bit of a joker, someone that you definitely want to learn from.
 
 Trelford's inspiration for this project was when he was trying to teach his son programming with Microsoft's Small Basic and he got frustrated that it did not support arguments in functions. So he decided to make his own Small Basic programming languge with more features, as you do
 
