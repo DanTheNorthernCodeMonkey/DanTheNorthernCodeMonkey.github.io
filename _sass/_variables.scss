@@ -15,11 +15,11 @@ $font-contrast: #fff;
 
 $navbar-text-shadow: true;
 $header-text-shadow: true;
-$header-background-color: $primary-contrast;
+$header-background-color: transparent;
 $intro-text-color: $font-color;
 $navbar-color: $font-contrast;
-$navbar-lg-collapse-background-color: $header-background-color;
-$navbar-lg-background: $header-background-color;
+$navbar-lg-collapse-background-color: $primary-contrast;
+$navbar-lg-background: transparent;
 $navbar-sm-background-color: $navbar-lg-collapse-background-color;
 
 $social-buttons-color: $secondary-color;

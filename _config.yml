@@ -87,6 +87,8 @@ icon-192p: "/img/web-app/icon-192p.png"
 # Blog #
 ########
 
+post-intro-background-img: "/img/banner.jpeg"
+
 enable-gesture-navigation: False
 
 post-preview-words: 86
