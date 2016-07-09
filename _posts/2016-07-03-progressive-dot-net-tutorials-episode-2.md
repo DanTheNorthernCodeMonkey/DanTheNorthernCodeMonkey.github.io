@@ -75,29 +75,48 @@ He brought this completely foreign concept of building a compiler and made it se
 
 The whole premise behind it being so simple was that Trelford had broken down the problem into smaller subsets, something we all should be doing in our day to day jobs, but is often easier said than done. He also kept breaking down the barriers with statement's like "This stuff is easy, what we do day in day out, UI, networks, users is hard.".
 
-The whole underlying principle is the abstract syntax tree:
+The whole underlying principle is the abstract syntax tree, which represents the syntactic structure of the langage. Below is the simple turtle tutorial AST:
 
+{% highlight haskell %}
+
+module AST
+
+type arg = int
+type command =
+   | Forward of arg
+   | Turn of arg
+   | Repeat of arg * command list
+
+{% endhighlight %} 
 
 The talk started with a making an abstract turtle move, then later draw to a form:
 
-Building upon these components we moved on to using the AST & interpreter to output javascript:
+{% highlight haskell %}
 
-Then IL:
+let pforward = (pstring "fd" <|> pstring "forward") >>. spaces1 >>. pfloat
+               |>> fun n -> Forward(int n)
 
-Finally we had a brief look at the Small Basic Compiler that did indeed have more functionality than Microsofts:
+test pforward "forward 10"
+test pforward "fd 10"
 
-After this Trelford told us a story how he was stuck on a train for three hours, so he extended his Small Basic AST & Parser to implement the C# language, including features that Microsoft started but later dropped. His friend then also built a compiler for this. 
+{% endhighlight %}
+
+This greatly aided by the [FParsec library](http://www.quanttec.com/fparsec “FParsec link”) Building upon these components we moved on to using the AST & interpreter to output javascript, IL and finally Trelford’s Small Basic Compiler that did indeed have more functionality than Microsoft’s.
+
+He has also built an IDE with many samples on the windows store, but sadly I was not able to find it. If you want to check it out give him a shout on twitter.
+
+Also the source code to these library’s are not available on his github, he gave us them via usb in the talk so I cannot unfortunately link to them. You can of course attend one of his talks on this topc to get your hands on them :P
+
+After this Trelford told us a story how he was stuck on a train for three hours, so he extended his Small Basic AST & Parser to [implement the C# language](http://trelford.com/blog/post/parsecsharp.aspx), including features that Microsoft started but later dropped. His friend then also [built a compiler for this](https://neildanson.wordpress.com/2014/02/11/building-a-c-compiler-in-f/). 
 
 WTF, like really wtf. I felt the massive need to level up after this talk. It was like I walked in at level 59, dinged to 60 and was asked if I want to prestige. 
 
 Then Trelford told us how his son, who is a youngster had also given a talk on something relatively complex...
 
-FML, really? Fuck prestiging I may as well reboot, regress into a fetus and start from the beginning at this rate.
+[Phil's blog post on Sean's talk](http://trelford.com/blog/post/ndcoslo.aspx "Phil's blog post on Sean's talk")
+
+FML, really? Screw prestiging I may as well reboot, regress into a fetus and start from the beginning at this rate.
 
 If haven't inferred already I was pretty blown away by this talk, and Trelford's energy in general. I genuinely love meeting people like this, I've had the pleasure to have worked with other talented engineers who just exude enthusiasm for the craft and they all made me want to code more, learn more, be a better me. This talk left me with that.
 
-* Go into further details of AST
-* DSLs
-* FParsec
-* Trelfords background as a Game Programmer DSLs etc.
-* Trelford did not go to university
+## Conclusion 
