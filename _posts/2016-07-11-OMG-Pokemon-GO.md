@@ -12,7 +12,7 @@ I wanna be the very best, like no one ever was...
 
 The theme tune descended upon me as I downloaded the APK filled with nostalgia and boyish glee. My office turned into raucous of hype, and mocking at the same time. Most of the people my age 26 where in, hook line and sinker as soon as the news that Pokemon Go had been released. To all those naysayers, exclaiming that it's for kids, we grew up on this shit:
 
-![bane-moulded-by-pokemon](/img/games/pokemon-go/bane.jpg)
+![bane-moulded-by-pokemon](/img/games/pokemon-go/3tcly6.jpg)
 
 I had adult things to this weekend, mainly consisting of driving, BBQing, drinking and then dying of a hangover. Today though was a day of searching far and wide. I had a cracking walk into work and running about at lunch catching them all. Much to the annoyance but also amusement of my Fiancée, as I would randomly stop, gormlessly raise my phone, do a flicking motion, then accelerate full pelt towards the next pokestop.
 
