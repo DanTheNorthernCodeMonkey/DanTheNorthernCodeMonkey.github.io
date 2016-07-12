@@ -161,7 +161,7 @@ email: "dan.ian.shea@gmail.com"
 # This works best when your author blurb image has a transparent background, or matches your site background color.
 
 # if the author_blurb is not set, then this feature is skipped
-author_blurb: "Dan Shea is a full stack developer, operating in the UK, trying to save the world one bit at a time."
+author_blurb: "Dan Shea is a full stack Pokemon trainer, operating in the UK, trying to save the world one battle at a time."
 author_blurb_image: "/img/profile.jpg"
 
 ##################
