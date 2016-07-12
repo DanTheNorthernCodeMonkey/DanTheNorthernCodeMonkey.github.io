@@ -16,6 +16,11 @@ Problems you won't find out until you get cracking:
 2. The Sprocs sp_adduser etc. Do accept parameterised variables but are soon to be deprecated, and you can't specifiy the database as a parameter.
 3. Dynamic sql is the only ~~hacky~~ way to do this. But make sure you use quotename() to avoid sql injection attacks.
 
+{% highlight sql %}
 
+declare @createUser nvarchar(300) = 'use ' + quotename(@databaseName) + ' if not exists (select 1 from sys.database_principals where name = ' + quotename(@username, '''') + ') create user ' + quotename(@username) + ' for login ' + quotename(@username) + ';'
+exec(@createUser)
+
+{% endhighlight %}
 
 
