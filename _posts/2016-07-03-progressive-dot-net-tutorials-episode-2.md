@@ -9,6 +9,7 @@ tags: [ 'Progressive .NET' ]
 ![Prog Net 2016 Banner](/img/progressive-dot-net-tutorials/prog-net-banner-01.jpg)
 ## The Fundamentals of Machine Learning with F# - Mark Gray
  
+![Prog Net 2016 Banner](/img/progressive-dot-net-tutorials/mark-gray.jpg)
  F# seems to be the cool thing these days. A lot of conference talks are on F# and this conference was no different. Not that it's a bad thing, I'm definitely intriqued to learn another language especially when it's in a different paradigm, I'm all about the hipster dev cred.
  
  The session had a scenario wherein we had a robot on Mars that was malfunctioning. It was up to us to get him to send a message through machine learning techniques. This was broken down into 3 solutions, the speaker gave a brief intro before each one and then got us working on them. The format was really engaging, each soluction had a scenario file with code that had blanks that we had to fill in to complete the mission, almost like the comprehension tasks you did back in school: 
@@ -67,6 +68,8 @@ Overall I felt that this talk was fun, informative, well structured and a great 
 Finally the speaker also opened up his training company's private repository for us to download source code tutorials from. This was an excellent move, as the attendees who do the training should have great things to say about FSharp tv.
 
 ## Build a compiler in hours - Phil Trelford
+
+![Prog Net 2016 Banner](/img/progressive-dot-net-tutorials/trelford.jpg)
 
 The afternoon was with Phil Trelford, [Dominic Finn](https://twitter.com/CleverFinn?lang=en-gb "Dominic Finn twitter") had told me to absorb all of the knowledges from Trelford. I instantly understood why when I went into his talk, he comes across as very intelligent but also a bit of a joker, someone that you definitely want to learn from.
 
