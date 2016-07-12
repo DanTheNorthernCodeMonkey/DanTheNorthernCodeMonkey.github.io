@@ -7,6 +7,7 @@ tags: [ 'Progressive .NET' ]
 ---
 
 ![Prog Net 2016 Banner](/img/progressive-dot-net-tutorials/prog-net-banner-01.jpg)
+
 ---
 <h1 class="brand-heading">&nbsp;</h1>
 
