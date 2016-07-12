@@ -5,7 +5,8 @@ title: Quest For Knowledge - Review of Progressive .Net Tutorials 2016 Episode 2
 category: tech
 tags: [ 'Progressive .NET' ]
 ---
- 
+
+![Prog Net 2016 Banner](/img/progressive-dot-net-tutorials/prog-net-banner-01.jpg)
 ## The Fundamentals of Machine Learning with F# - Mark Gray
  
  F# seems to be the cool thing these days. A lot of conference talks are on F# and this conference was no different. Not that it's a bad thing, I'm definitely intriqued to learn another language especially when it's in a different paradigm, I'm all about the hipster dev cred.
