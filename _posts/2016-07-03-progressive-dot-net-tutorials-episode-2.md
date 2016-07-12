@@ -14,6 +14,8 @@ tags: [ 'Progressive .NET' ]
  
 ![Prog Net 2016 Banner](/img/progressive-dot-net-tutorials/mark-gray.jpg)
 
+<h1 class="brand-heading">&nbsp;</h1>
+
  F# seems to be the cool thing these days. A lot of conference talks are on F# and this conference was no different. Not that it's a bad thing, I'm definitely intriqued to learn another language especially when it's in a different paradigm, I'm all about the hipster dev cred.
  
  The session had a scenario wherein we had a robot on Mars that was malfunctioning. It was up to us to get him to send a message through machine learning techniques. This was broken down into 3 solutions, the speaker gave a brief intro before each one and then got us working on them. The format was really engaging, each soluction had a scenario file with code that had blanks that we had to fill in to complete the mission, almost like the comprehension tasks you did back in school: 
