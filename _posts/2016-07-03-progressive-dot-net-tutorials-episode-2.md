@@ -7,6 +7,8 @@ tags: [ 'Progressive .NET' ]
 ---
 
 ![Prog Net 2016 Banner](/img/progressive-dot-net-tutorials/prog-net-banner-01.jpg)
+---
+<h1 class="brand-heading">&nbsp;</h1>
 ## The Fundamentals of Machine Learning with F# - Mark Gray
  
 ![Prog Net 2016 Banner](/img/progressive-dot-net-tutorials/mark-gray.jpg)
@@ -66,7 +68,8 @@ My advice to the speaker would be to really fill out the comment blocks further,
 Overall I felt that this talk was fun, informative, well structured and a great chance to dabble in F#. I'd definitely recommend attending this talk if it happens at a local meetup for you.
 
 Finally the speaker also opened up his training company's private repository for us to download source code tutorials from. This was an excellent move, as the attendees who do the training should have great things to say about FSharp tv.
-
+---
+<h1 class="brand-heading">&nbsp;</h1>
 ## Build a compiler in hours - Phil Trelford
 
 ![Prog Net 2016 Banner](/img/progressive-dot-net-tutorials/trelford.jpg)
