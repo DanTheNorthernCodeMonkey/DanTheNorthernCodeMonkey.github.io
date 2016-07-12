@@ -131,6 +131,6 @@ Then Trelford told us how his son, who is a youngster had also given a talk on s
 
 FML, really? Screw prestiging I may as well reboot, regress into a fetus and start from the beginning at this rate.
 
-If haven't inferred already I was pretty blown away by this talk, and Trelford's energy in general. I genuinely love meeting people like this, I've had the pleasure to have worked with other talented engineers who just exude enthusiasm for the craft and they all made me want to code more, learn more, be a better me. This talk left me with that.
-
 ## Conclusion 
+
+If haven't inferred already I was pretty blown away by this talk, and Trelford's energy in general. I genuinely love meeting people like this, I've had the pleasure to have worked with other talented engineers who just exude enthusiasm for the craft and they all made me want to code more, learn more, be a better me. This talk left me with that.
