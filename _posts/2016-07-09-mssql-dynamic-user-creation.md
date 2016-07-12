@@ -18,8 +18,8 @@ Problems you won't find out until you get cracking:
 
 {% highlight sql %}
 
-declare @createUser nvarchar(300) = 'use ' + quotename(@databaseName) + ' if not exists (select 1 from sys.database_principals where name = ' + quotename(@username, '''') + ') create user ' + quotename(@username) + ' for login ' + quotename(@username) + ';'
-exec(@createUser)
+declare @create nvarchar(300) = 'use ' + quotename(@database) + ' if not exists (select 1 from sys.database_principals where name = ' + quotename(@user, '''') + ') create user ' + quotename(@user) + ' for login ' + quotename(@user) + ';'
+exec(@create)
 
 {% endhighlight %}
 
