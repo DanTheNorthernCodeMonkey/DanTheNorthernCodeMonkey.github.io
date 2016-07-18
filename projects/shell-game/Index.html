@@ -1,0 +1,170 @@
+---
+layout: generic-page
+section-type: game
+title: Games
+sitemap:
+  priority: 1.0
+---
+<style>
+.box {
+  width:50px;
+  height:50px;
+  position:relative;
+  border-radius:6px;
+  margin-top:4px;
+  display:inline-block;
+  margin: 5px;
+  background-color: #00cdff;
+}
+
+.ball {
+  width:10px;
+  height:10px;
+  top: -50px;
+  left: 48%;
+  position:absolute;
+  border-radius:6px;
+  margin-top:4px;
+  margin: 5px;
+  background-color: #fff;
+  display:none;
+}
+
+.game-wrapper {
+  height:280px;
+  width:200px;
+  margin: auto;
+}
+
+.helper-text {
+  margin: auto;
+  height:60px;
+}
+
+.reveal {
+  background:#000;
+  -webkit-transition:background 1s;
+  -moz-transition:background 1s;
+  -o-transition:background 1s;
+  transition:background 1s;
+  z-index: -2;
+}
+
+.unReveal {
+  background:#000;
+  -webkit-transition:background 1s;
+  -moz-transition:background 1s;
+  -o-transition:background 1s;
+  transition:background 1s;
+  z-index: -2;
+}
+
+
+</style>
+<script src="{{site.baseurl}}/js/jquery-3.1.0.min.js"></script>
+<script type="text/javascript">
+
+var transitions = 30;
+var controlSet = [];
+
+$(document).ready(function() {
+
+  TweenMax.staggerTo(".box", 1, {rotation:360, y:100}, 0.5, function (){
+    $(".ball").css('display', 'block');
+    TweenMax.to(".ball", 1, { y: 247, ease: Power0.easeNone, onComplete: function (){
+      $(".ball").hide();
+      $("#button").on('click', startGame);   
+    }});
+  });
+
+function startGame (){
+  var id = 1;
+  var time = 500;
+  // $("reveal").addClass('unReveal');
+  $("#winLose").text("");
+  $("#winLose").val("&nbsp;");
+  $('#button').prop('disabled', true);
+  $(".box").removeClass('reveal');
+  $(".ball").hide();
+   
+  shuffle(id,time)
+}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+var stop = false;
+
+function shuffle(id,time){  
+  // console.log("shuffle: " + id);
+  controlSet[id] = 0
+  var boxes = $(".game-wrapper").find('.box');
+  var box1 = $(boxes[getRandomInt(0,boxes.length - 1)]);
+  var box2 = $(boxes.not(box1)[getRandomInt(0, boxes.length - 2)]);
+  box1.stop(false, true);
+  box2.stop(false, true);
+  var box1Offset = box1.offset();
+  var box2Offset = box2.offset();
+  box1.animate({left: '+=' + (box2Offset.left - box1Offset.left)}, time,function () { controller(id, time); });
+  box2.animate({left: '+=' + (box1Offset.left - box2Offset.left)}, time,  function () { controller(id, time); });  
+}
+
+function controller (id, time){
+  // console.log("controller: " + id);
+  controlSet[id]++
+  if (controlSet[id] >= 2){
+    var newId = id + 1;
+    // console.log("newId: " + newId);
+    if (id === transitions){
+      $(".helper-text").text("Click the box that contains the ball!");
+      play();
+      return;
+    }
+    shuffle(newId, time *= 0.9)
+  }
+}
+
+function play(){
+  $(".box").on('click', function () {
+
+      var result = getRandomInt(0,1);
+
+      if (result === 1){
+        var ballPosition = $(this).offset();
+        $(".ball").css("left", ballPosition.left.toString() + "px");
+        $(".ball").show();
+        $(this).addClass('reveal');
+        $("#winLose").text("You win!");
+      } else {
+        $(this).addClass('reveal');
+        $("#winLose").text("You lose!");
+      }
+      
+      $(".helper-text").text("");
+      $("#button").text('Play Again!', false);
+      $("#button").prop('disabled', false);
+      $(".box").prop('onclick',null).off('click');
+  });
+
+}
+
+function reveal(e){
+  
+}
+
+
+});
+
+</script>
+<div class="game-wrapper">
+  <div class="helper-text">&nbsp;</div>
+  <div class="ball"></div>
+  <div class="box inner-shadow"></div>
+  <div class="box inner-shadow"></div>
+  <div class="box inner-shadow"></div>
+</div>
+<div>
+<button id="button">START</button>
+<span style="margin-left: 40px;" id="winLose">&nbsp;</span>
+</div>

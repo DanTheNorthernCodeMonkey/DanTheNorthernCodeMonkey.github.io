@@ -72,7 +72,7 @@ apple-status-bar-style: "black"
 # Web app mode #
 ################
 
-web-app-mode: False
+web-app-mode: True
 
 # Icons for Web App mode
 
@@ -192,6 +192,8 @@ pages_list:
   About: 'about'
   Blog: 'latest-post'
   Timeline: 'timeline'
+  Projects: 'projects'
+  Gallery: 'gallery'
   Contact: 'contact'
 
 # Exclusion list from the generated _site

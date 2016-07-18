@@ -2,7 +2,7 @@
 <!-- Javascript Start -->
 
 <!-- jQuery -->
-<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="{{site.baseurl}}/js/jquery-3.1.0.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -99,6 +99,16 @@ $(window).scroll(toggleNavCollapse);$(function(){$("a.page-scroll").bind("click"
   <!-- Share buttons Start -->
 
   <script src="{{site.baseurl}}/js/rrssb.min.js"></script>
+
+  <!-- Share buttons End -->
+
+{% endif %}
+
+{% if page.section-type == "game" %}
+
+  <!-- Share buttons Start -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
 
   <!-- Share buttons End -->
 
