@@ -131,7 +131,7 @@ function play(){
       var result = getRandomInt(0,1);
 
       if (result === 1){
-        var ballPosition = $(this).offset();
+        var ballPosition = $(this).position();
         $(".ball").css("left", ballPosition.left.toString() + "px");
         $(".ball").show();
         $(this).addClass('reveal');
