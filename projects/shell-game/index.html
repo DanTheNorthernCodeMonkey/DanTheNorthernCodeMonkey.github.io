@@ -150,7 +150,7 @@ function controller (id, time){
       play();
       return;
     }
-    time = time >= 400 ? time *= speed : time = 300;
+    time = time >= 200 ? time *= speed : time = 100;
     shuffle(newId,time)
   }
 }
