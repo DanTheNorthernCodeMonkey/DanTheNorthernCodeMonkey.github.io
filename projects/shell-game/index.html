@@ -91,8 +91,10 @@ sitemap:
 <script src="{{site.baseurl}}/js/jquery-3.1.0.min.js"></script>
 <script type="text/javascript">
 
+var time = 1000;
 var transitions = 30;
 var controlSet = [];
+var speed = 0.9;
 
 $(document).ready(function() {
 
@@ -107,7 +109,6 @@ $(document).ready(function() {
 
 function startGame (){
   var id = 1;
-  var time = 500;
   // $("reveal").addClass('unReveal');
   $("#winLose").text("");
   $("#winLose").val("&nbsp;");
@@ -149,7 +150,8 @@ function controller (id, time){
       play();
       return;
     }
-    shuffle(newId, time *= 0.9)
+    time = time >= 200 ? time *= speed : time = 100;
+    shuffle(newId,time)
   }
 }
 
@@ -176,11 +178,6 @@ function play(){
   });
 
 }
-
-function reveal(e){
-  
-}
-
 
 });
 
