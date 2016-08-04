@@ -1,0 +1,142 @@
+---
+layout: generic-page
+section-type: game
+title: Games
+sitemap:
+  priority: 1.0
+---
+<style>
+  .game-wrapper {
+    margin: auto;
+    text-align: center;
+  }
+  
+  #game {}
+  
+  .game-wrapper-controls {
+    height: 60px;
+    width: 200px;
+    margin: auto;
+    position absolute;
+    text-align: center;
+  }
+</style>
+<script src="{{site.baseurl}}/js/jquery-3.1.0.min.js"></script>
+<script>
+$(document).ready(function() {
+
+var canvas = document.getElementById('game');
+var fullWidth = screen.width > 500; 
+var framerate = 1;
+
+canvas.width = fullWidth ? 500 : (screen.width - (screen.width * 0.05));
+canvas.height = fullWidth ? 500 : (screen.width - (screen.width * 0.05));
+
+var running = true;
+
+var colours = [
+  "#FF0000",
+ 	"#FFFF00",
+ 	"#00FF00",
+ 	"#00FFFF",
+ 	"#0000FF",
+  "#F6E3CE",
+  "#FBEFEF",
+  "#A4A4A4",
+  "#FA58F4"
+];
+
+
+var requestAnimationFrame = window.requestAnimationFrame || 
+                            window.mozRequestAnimationFrame || 
+                            window.webkitRequestAnimationFrame || 
+                            window.msRequestAnimationFrame;
+
+var ctx = canvas.getContext('2d');
+
+var boxPosition = (canvas.width / 3);
+var boxDimension = boxPosition - (canvas.width * 0.05);
+var start = (canvas.width * 0.025); 
+
+var animationCycles = 30;
+
+function draw() {
+  ctx.fillStyle = '#00cdff';
+
+  for (var i=0;i<3;i++){
+    for (var j=0;j<3;j++){
+
+      // ctx.fillRect(fullWidth && j === 0 ? start : j * boxDimension, fullWidth && i === 0 ? start : i * boxDimension, boxPosition, boxPosition);
+      ctx.fillRect(j * boxPosition, i * boxPosition, boxDimension, boxDimension);
+    }
+  }
+}
+
+draw();
+
+$("#button").on('click', startGame);
+
+
+function startGame(){
+  animate(framerate);
+}
+
+function animate(framerate) {
+    if (running) {
+      var nextColour = 0;
+      var shuffledColours = shuffle(colours);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (var i=0;i<3;i++){
+          for (var j=0;j<3;j++){
+            ctx.fillStyle = shuffledColours[nextColour];
+            ctx.fillRect(j * boxPosition, i * boxPosition, boxDimension, boxDimension);
+            nextColour++;
+          }
+        }
+    }
+
+  setTimeout(function() {
+  requestAnimationFrame(function () {
+    if (animationCycles % 3 == 0 && framerate < 5)
+      framerate++;
+
+    if (animationCycles > 0){
+      animate(framerate);
+      --animationCycles;      
+    }
+    else{
+      finish();
+    }
+});
+    }, 1000 / framerate);
+
+}
+
+function finish(){
+  animationCycles = 30;
+  framerate = 1;
+}
+
+function shuffle(array) {
+  var m = array.length, t, i;
+
+  while (m) {
+
+    i = Math.floor(Math.random() * m--);
+
+    t = array[m];
+    array[m] = array[i];
+    array[i] = t;
+  }
+  return array;
+}
+
+});
+
+</script>
+<div class="game-wrapper">
+  <canvas id="game">
+  </canvas>
+  <div class="game-wrapper-controls">
+    <button id="button" class="entry bigger">START</button>
+  </div>
