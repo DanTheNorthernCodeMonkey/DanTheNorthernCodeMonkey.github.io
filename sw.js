@@ -1,16 +1,17 @@
 (function () {
 
+    var self = this;
 	// These cache names need incrementing on changes happening, make part of a build script.
 	var cacheName = 'appShellV1',
         appShellFiles = [
             // CDNd files, this is fucking horrible, cloudflare CDNs my assets anyway anyway.
             // TODO: Make a gulp build script to consolidate all CSS into one file and all js into one file.
             //'/offline/index.html',
-            'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css',
-            'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css',
-            '/css/rrssb.css',
-            '/css/grayscale.css',
-            '/css/timeline.css',
+            // 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css',
+            // 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css',
+            // '/css/rrssb.css',
+            // '/css/grayscale.css',
+            // '/css/timeline.css',
             "/"
         ];
 
