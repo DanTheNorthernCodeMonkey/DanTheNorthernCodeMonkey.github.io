@@ -10,8 +10,8 @@
             'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css',
             'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css',
             '/css/rrssb.css',
-            'grayscale.scss',
-            'timeline.scss',
+            '/css/grayscale.scss',
+            '/css/timeline.scss',
             //'/offline/index.html',
             '/'
         ];
@@ -48,7 +48,7 @@
             })
         );
     });
-    
+
     self.addEventListener('fetch', function(e) {
         console.log('[ServiceWorker] Fetch', e.request.url);
         var dataUrl = 'https://publicdata-weather.firebaseio.com/';
