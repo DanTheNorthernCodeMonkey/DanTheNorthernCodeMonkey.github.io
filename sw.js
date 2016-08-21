@@ -2,7 +2,7 @@
 
     var self = this;
 	// These cache names need incrementing on changes happening, make part of a build script.
-	var cacheName = 'appShellV2',
+	var cacheName = 'appShellV3',
         appShellFiles = [
             // CDNd files, this is fucking horrible, cloudflare CDNs my assets anyway anyway.
             // TODO: Make a gulp build script to consolidate all CSS into one file and all js into one file.
@@ -25,6 +25,7 @@
                 	cache.addAll(appShellFiles); // Atomic, one fails, it all fails
                 }).then(self.skipWaiting()); // Older service workers will cause this one to "wait". This skips the waiting stage.
 		}
+
 		e.waitUntil(onInstall(e));
 	});
 
