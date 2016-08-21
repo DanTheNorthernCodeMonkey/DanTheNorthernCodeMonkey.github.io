@@ -35,48 +35,48 @@
     self.addEventListener('activate', function(e) {
         console.log('[ServiceWorker] Activate');
         e.waitUntil(
-            caches.keys().then(function(keyList) {
-                // Flushing the old cache here
-                return Promise.all(keyList.map(function(key) {
-                    console.log('[ServiceWorker] Removing old cache', key);
-                    if (key !== appShellCacheName) {
-                        return caches.delete(key);
-                    }
-                }));
-            })
+            // caches.keys().then(function(keyList) {
+            //     // Flushing the old cache here
+            //     return Promise.all(keyList.map(function(key) {
+            //         console.log('[ServiceWorker] Removing old cache', key);
+            //         if (key !== appShellCacheName) {
+            //             return caches.delete(key);
+            //         }
+            //     }));
+            // })
         );
     });
 
     self.addEventListener('fetch', function(e) {
 
-        var fetchRequest = event.request.clone();
+        var fetchRequest = e.request.clone();
 
         console.log('[ServiceWorker] Fetch', fetchRequest.url);
-        if (isNotInAppShellCache(fetchRequest)) {
-          e.respondWith(
-            fetch(fetchRequest)
-              .then(function(response) {
-                return caches.open(dataCacheName).then(function(cache) {
+        // if (isNotInAppShellCache(fetchRequest)) {
+        //   e.respondWith(
+        //     fetch(fetchRequest)
+        //       .then(function(response) {
+        //         return caches.open(dataCacheName).then(function(cache) {
                 
-                  if (!response || response.status !== 200) // On error return the offline page.
-                    caches.match('/').then(function (response) {
-                        return response;
-                    });
+        //           if (!response || response.status !== 200) // On error return the offline page.
+        //             caches.match('/').then(function (response) {
+        //                 return response;
+        //             });
 
 
-                  cache.put(fetchRequest.url, response.clone());
-                  console.log('[ServiceWorker] Fetched & Cached Data');
-                  return response;
-                });
-              })
-          );
-        } else {
+        //           cache.put(fetchRequest.url, response.clone());
+        //           console.log('[ServiceWorker] Fetched & Cached Data');
+        //           return response;
+        //         });
+        //       })
+        //   );
+        // } else {
           e.respondWith(
-            caches.match(e.request).then(function(response) {
-              return response || fetch(e.request);
+            caches.match(fetchRequest).then(function(response) {
+              return response || fetch(fetchRequest);
             })
           );
-        }
+        // }
     });
 
     function isNotInAppShellCache (url) {
