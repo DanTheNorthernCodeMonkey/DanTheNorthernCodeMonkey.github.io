@@ -64,8 +64,9 @@
             		return caches.open(cacheName).then(function (cache) {
 
             			// On error return the offline page.
+                        // TODO: Make a snake game for offile page.
             			if (!response || response.status !== 200) {
-            				caches.match('/').then(function (response) {
+            				caches.match('/').then(function (response) { 
             					return response;
             				});
             			}

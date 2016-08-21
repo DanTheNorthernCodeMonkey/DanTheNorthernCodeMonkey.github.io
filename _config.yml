@@ -76,12 +76,12 @@ web-app-mode: True
 
 # Icons for Web App mode
 
-icon-36p: "/img/icons/favicon.png"
-icon-48p: "/img/icons/favicon.png"
-icon-72p: "/img/icons/favicon.png"
-icon-96p: "/img/icons/favicon.png"
-icon-144p: "/img/icons/favicon.png"
-icon-192p: "/img/icons/favicon.png"
+icon-36p: "/img/icons/icon36.png"
+icon-48p: "/img/icons/icon48.png"
+icon-72p: "/img/icons/icon72.png"
+icon-96p: "/img/icons/icon96.png"
+icon-144p: "/img/icons/icon144.png"
+icon-192p: "/img/icons/icon192.png"
 
 ########
 # Blog #
