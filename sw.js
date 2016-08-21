@@ -30,8 +30,7 @@
 
 	self.addEventListener('activate', function (e) {
 		console.log('[ServiceWorker] Activate');
-		e.waitUntil(
-            caches.keys().then(function (keyList) {
+		e.waitUntil(caches.keys().then(function (keyList) {
             	// Flushing the old cache here
             	// As it's a static site, a post is the only change, which also updates the index, therefore
             	// updating the cache name via versioning will remove the old cache and replace with the new.
@@ -43,6 +42,7 @@
             	}));
             }).catch(function (e) {
             	console.log('[ServiceWorker] Error removing old cache, error message: ' + e);
+                return null;
             })
         );
 	});
