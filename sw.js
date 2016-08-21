@@ -5,14 +5,15 @@
     // These cache names need incrementing on changes happening, make part of a build script.
     var appShellCacheName = 'appShell-v1.0',
         dataCacheName = 'dataCache-v1.0',
+        siteFullDomain = 'https://www.danthenortherncodemonkey.com',
         appShellFiles = [
-            // CDNd files, this is fucking horrible, cloudflare CDNs my shit anyway.
+            // CDNd files, this is fucking horrible, cloudflare CDNs my assets anyway anyway.
             // TODO: Make a gulp build script to consolidate all CSS into one file and all js into one file.
             'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css',
             'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css',
             '/css/rrssb.css',
-            '/css/grayscale.scss',
-            '/css/timeline.scss',
+            '/css/grayscale.css',
+            '/css/timeline.css',
             //'/offline/index.html',
             '/'
         ];
@@ -52,15 +53,24 @@
     });
 
     self.addEventListener('fetch', function(e) {
-        console.log('[ServiceWorker] Fetch', e.request.url);
-        var dataUrl = 'https://publicdata-weather.firebaseio.com/';
-        if (e.request.url.indexOf(dataUrl) === 0) {
+
+        var fetchRequest = event.request.clone();
+
+        console.log('[ServiceWorker] Fetch', fetchRequest.url);
+        if (isNotInAppShellCache(fetchRequest)) {
           e.respondWith(
-            fetch(e.request)
+            fetch(fetchRequest)
               .then(function(response) {
                 return caches.open(dataCacheName).then(function(cache) {
-                  cache.put(e.request.url, response.clone());
-                  console.log('[ServiceWorker] Fetched&Cached Data');
+                
+                  if (!response || response.status !== 200) // On error return the offline page.
+                    caches.match('/').then(function (response) {
+                        return response;
+                    });
+
+
+                  cache.put(fetchRequest.url, response.clone());
+                  console.log('[ServiceWorker] Fetched & Cached Data');
                   return response;
                 });
               })
@@ -73,4 +83,12 @@
           );
         }
     });
+
+    function isNotInAppShellCache (url) {
+        cache.open(appShellCacheName).then(function (cache) {
+            caches.match(url).then(function (response) {
+                return !response ? true : false
+            });
+        });
+    }
 }());
