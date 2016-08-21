@@ -16,7 +16,7 @@
         ];
 
 
-	self.addEventListener('install', function (event) {
+	self.addEventListener('install', function (e) {
 		console.log('Started', self);
 
 		function onInstall() {
@@ -25,7 +25,7 @@
                 	cache.addAll(appShellFiles); // Atomic, one fails, it all fails
                 }).then(self.skipWaiting()); // Older service workers will cause this one to "wait". This skips the waiting stage.
 		}
-		event.waitUntil(onInstall(event));
+		e.waitUntil(onInstall(e));
 	});
 
 	self.addEventListener('activate', function (e) {
