@@ -30,21 +30,21 @@
 
 	self.addEventListener('activate', function (e) {
 		console.log('[ServiceWorker] Activate');
-		e.waitUntil(caches.keys().then(function (keyList) {
-            	// Flushing the old cache here
-            	// As it's a static site, a post is the only change, which also updates the index, therefore
-            	// updating the cache name via versioning will remove the old cache and replace with the new.
-            	return Promise.all(keyList.map(function (key) {
-            		console.log('[ServiceWorker] Removing old cache', key);
-            		if (key !== cacheName) {
-            			return caches.delete(key);
-            		}
-            	}));
-            }).catch(function (e) {
-            	console.log('[ServiceWorker] Error removing old cache, error message: ' + e);
-                return null;
-            })
-        );
+		// e.waitUntil(caches.keys().then(function (keyList) {
+        //     	// Flushing the old cache here
+        //     	// As it's a static site, a post is the only change, which also updates the index, therefore
+        //     	// updating the cache name via versioning will remove the old cache and replace with the new.
+        //     	return Promise.all(keyList.map(function (key) {
+        //     		console.log('[ServiceWorker] Removing old cache', key);
+        //     		if (key !== cacheName) {
+        //     			return caches.delete(key);
+        //     		}
+        //     	}));
+        //     }).catch(function (e) {
+        //     	console.log('[ServiceWorker] Error removing old cache, error message: ' + e);
+        //         return null;
+        //     })
+        // );
 	});
 
 	// As the site is static and will not use a proper "App cache" I've opted for 
