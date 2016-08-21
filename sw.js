@@ -40,9 +40,6 @@
             			return caches.delete(key);
             		}
             	}));
-            }).catch(function (e) {
-            	console.log('[ServiceWorker] Error removing old cache, error message: ' + e);
-                return null;
             })
         );
 	});
