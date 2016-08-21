@@ -2,8 +2,9 @@
 (function () {
     var self = this;
 
-    var appShellCacheName = 'appShell',
-        dataCacheName = 'dataCache',
+    // These cache names need incrementing on changes happening, make part of a build script.
+    var appShellCacheName = 'appShell-v1.0',
+        dataCacheName = 'dataCache-v1.0',
         appShellFiles = [
             // CDNd files, this is fucking horrible, cloudflare CDNs my shit anyway.
             // TODO: Make a gulp build script to consolidate all CSS into one file and all js into one file.
@@ -39,9 +40,10 @@
         console.log('[ServiceWorker] Activate');
         e.waitUntil(
             caches.keys().then(function(keyList) {
+                // Flushing the old cache here
                 return Promise.all(keyList.map(function(key) {
                     console.log('[ServiceWorker] Removing old cache', key);
-                    if (key !== cacheName) {
+                    if (key !== appShellCacheName) {
                         return caches.delete(key);
                     }
                 }));
