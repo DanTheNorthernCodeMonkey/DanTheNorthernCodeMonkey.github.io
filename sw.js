@@ -1,6 +1,6 @@
 (function () {
-
 	var self = this;
+
 	// These cache names need incrementing on changes happening, make part of a build script.
 	var cacheName = 'appShellV1',
         appShellFiles = [
