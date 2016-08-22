@@ -76,7 +76,7 @@
             }).then(function () {
                 return navigator.serviceWorker.ready;
             }).then(function (reg) {
-                return reg.sync.register('syncTest');
+                return reg.sync.register('sync');
             }).then(function () {
                 console.log('Sync registered');
             }).catch(function (err) {

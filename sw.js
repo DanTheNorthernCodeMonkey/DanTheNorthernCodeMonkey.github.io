@@ -129,7 +129,7 @@
 	});
 
 	//************ Background Sync ************/
-	self.addEventListener('syncTest', function (e) {
+	self.addEventListener('sync', function (e) {
 		console.log('Push message', e);
 
 		var title = 'New Blog Post';
