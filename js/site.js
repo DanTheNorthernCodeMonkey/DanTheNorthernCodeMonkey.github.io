@@ -20,6 +20,9 @@
         });
     }
 
+    if (!subscribeButton)
+        return;
+
     subscribeButton.addEventListener('click', function () {
         if (isSubscribed) {
             unsubscribe();
