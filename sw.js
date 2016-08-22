@@ -22,7 +22,7 @@
 		function onInstall() {
 			return caches.open(cacheName)
                 .then(function (cache) {
-                	cache.addAll(appShellFiles); // Atomic, one fails, it all fails
+					cache.addAll(appShellFiles); // Atomic, one fails, it all fails
                 }).then(self.skipWaiting()); // Older service workers will cause this one to "wait". This skips the waiting stage.
 		}
 
@@ -32,16 +32,16 @@
 	self.addEventListener('activate', function (e) {
 		console.log('[ServiceWorker] Activate');
 		e.waitUntil(caches.keys().then(function (keyList) {
-            	// Flushing the old cache here
-            	// As it's a static site, a post is the only change, which also updates the index, therefore
-            	// updating the cache name via versioning will remove the old cache and replace with the new.
-            	return Promise.all(keyList.map(function (key) {
-            		console.log('[ServiceWorker] Removing old cache', key);
-            		if (key !== cacheName) {
-            			return caches.delete(key);
-            		}
-            	}));
-            })
+			// Flushing the old cache here
+			// As it's a static site, a post is the only change, which also updates the index, therefore
+			// updating the cache name via versioning will remove the old cache and replace with the new.
+			return Promise.all(keyList.map(function (key) {
+				console.log('[ServiceWorker] Removing old cache', key);
+				if (key !== cacheName) {
+					return caches.delete(key);
+				}
+			}));
+		})
         );
 	});
 
@@ -55,28 +55,70 @@
 		e.respondWith(
             caches.match(fetchRequest).then(function (response) {
 
-            	// If cached return straight away
-            	if (response)
-            		return response;
+				// If cached return straight away
+				if (response)
+					return response;
 
-            	// If not get it, then cache it
-            	return fetch(fetchRequest).then(function (response) {
-            		return caches.open(cacheName).then(function (cache) {
+				// If not get it, then cache it
+				return fetch(fetchRequest).then(function (response) {
+					return caches.open(cacheName).then(function (cache) {
 
-            			// On error return the offline page.
+						// On error return the offline page.
                         // TODO: Make a snake game for offile page.
-            			if (!response || response.status !== 200) {
-            				caches.match('/').then(function (response) { 
-            					return response;
-            				});
-            			}
+						if (!response || response.status !== 200) {
+							caches.match('/').then(function (response) {
+								return response;
+							});
+						}
 
-            			cache.put(fetchRequest.url, response.clone());
-            			console.log('[ServiceWorker] Fetched & Cached Data');
-            			return response;
-            		});
-            	});
+						cache.put(fetchRequest.url, response.clone());
+						console.log('[ServiceWorker] Fetched & Cached Data');
+						return response;
+					});
+				});
             })
         );
 	});
-}());
+
+	self.addEventListener('push', function (e) {
+		console.log('Push message', e);
+
+		var title = 'Push message';
+
+		e.waitUntil(
+			self.registration.showNotification(title, {
+				'body': 'A new blog post is up, check it out!',
+				'icon': 'img/icon72.png'
+			}));
+	});
+
+	self.addEventListener('notificationclick', function (e) {
+		console.log('Notification click: tag', e.notification.tag);
+		// Android doesn't close the notification when you click it
+		// See http://crbug.com/463146
+		e.notification.close();
+		var url = 'https://danthenortherncodemonkey.com#latest-blog-post';
+		// Check if there's already a tab open with this URL.
+		// If yes: focus on the tab.
+		// If no: open a tab with the URL.
+		e.waitUntil(
+			clients.matchAll({
+				type: 'window'
+			})
+				.then(function (windowClients) {
+					console.log('WindowClients', windowClients);
+					for (var i = 0; i < windowClients.length; i++) {
+						var client = windowClients[i];
+						console.log('WindowClient', client);
+						if (client.url === url && 'focus' in client) {
+							return client.focus();
+						}
+					}
+					if (clients.openWindow) {
+						return clients.openWindow(url);
+					}
+				})
+		);
+	});
+
+} ());
