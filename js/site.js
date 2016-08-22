@@ -21,61 +21,61 @@
         });
     }
 
-    if (!subscribeButton)
-        return;
+    if (subscribeButton) {
 
-    subscribeButton.addEventListener('click', function () {
-        if (isSubscribed) {
-            unsubscribe();
-        } else {
-            subscribe();
+        subscribeButton.addEventListener('click', function () {
+            if (isSubscribed) {
+                unsubscribe();
+            } else {
+                subscribe();
+            }
+        });
+
+        function subscribe() {
+            // reg = registration event we captured earlier
+            // push manager is the object we need to enable push notifications
+            reg.pushManager.subscribe({ userVisibleOnly: true }) // userVisibleOnly = always show
+                .then(function (pushSubscription) {
+                    sub = pushSubscription;
+                    console.log('Subscribed! Endpoint:', sub.endpoint);
+                    subscribeButton.textContent = 'Unsubscribe';
+                    isSubscribed = true;
+                });
         }
-    });
 
-    function subscribe() {
-        // reg = registration event we captured earlier
-        // push manager is the object we need to enable push notifications
-        reg.pushManager.subscribe({ userVisibleOnly: true }) // userVisibleOnly = always show
-        .then(function (pushSubscription) {
-                sub = pushSubscription;
-                console.log('Subscribed! Endpoint:', sub.endpoint);
-                subscribeButton.textContent = 'Unsubscribe';
-                isSubscribed = true;
+        function unsubscribe() {
+            sub.unsubscribe().then(function (event) {
+                subscribeButton.textContent = 'Subscribe';
+                console.log('Unsubscribed!', event);
+                isSubscribed = false;
+            }).catch(function (error) {
+                console.log('Error unsubscribing', error);
+                subscribeButton.textContent = 'Subscribe';
             });
+        }
     }
 
-    function unsubscribe() {
-        sub.unsubscribe().then(function (event) {
-            subscribeButton.textContent = 'Subscribe';
-            console.log('Unsubscribed!', event);
-            isSubscribed = false;
-        }).catch(function (error) {
-            console.log('Error unsubscribing', error);
-            subscribeButton.textContent = 'Subscribe';
+    if (registerSync) {
+
+        registerSync.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            new Promise(function (resolve, reject) {
+                Notification.requestPermission(function (result) {
+                    if (result !== 'granted') return reject(Error("Denied notification permission"));
+                    resolve();
+                })
+            }).then(function () {
+                return navigator.serviceWorker.ready;
+            }).then(function (reg) {
+                return reg.sync.register('syncTest');
+            }).then(function () {
+                log('Sync registered');
+            }).catch(function (err) {
+                log('It broke');
+                log(err.message);
+            });
         });
     }
-
-    if (!registerSync)
-        return;
-
-    registerSync.addEventListener('click', function(event) {
-      event.preventDefault();
-
-      new Promise(function(resolve, reject) {
-        Notification.requestPermission(function(result) {
-          if (result !== 'granted') return reject(Error("Denied notification permission"));
-          resolve();
-        })
-      }).then(function() {
-        return navigator.serviceWorker.ready;
-      }).then(function(reg) {
-        return reg.sync.register('syncTest');
-      }).then(function() {
-        log('Sync registered');
-      }).catch(function(err) {
-        log('It broke');
-        log(err.message);
-      });
-    });
 
 } ());
