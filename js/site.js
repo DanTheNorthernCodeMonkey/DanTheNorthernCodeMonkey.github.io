@@ -70,10 +70,10 @@
             }).then(function (reg) {
                 return reg.sync.register('syncTest');
             }).then(function () {
-                log('Sync registered');
+                console.log('Sync registered');
             }).catch(function (err) {
-                log('It broke');
-                log(err.message);
+                console.log('It broke');
+                console.log(err.message);
             });
         });
     }
