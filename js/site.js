@@ -58,7 +58,7 @@
     if (!registerSync)
         return;
 
-    document.querySelector('.register').addEventListener('click', function(event) {
+    registerSync.addEventListener('click', function(event) {
       event.preventDefault();
 
       new Promise(function(resolve, reject) {
