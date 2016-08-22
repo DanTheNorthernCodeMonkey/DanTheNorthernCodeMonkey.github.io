@@ -90,7 +90,7 @@
 	self.addEventListener('push', function (e) {
 		console.log('Push message', e);
 
-		var title = 'Push message';
+		var title = 'New Blog Post';
 
 		e.waitUntil(
 			self.registration.showNotification(title, {
@@ -129,8 +129,15 @@
 	});
 
 	//************ Background Sync ************/
-	self.addEventListener('sync', function (event) {
-		self.registration.showNotification("Sync event fired!");
+	self.addEventListener('sync', function (e) {
+		console.log('Push message', e);
+
+		var title = 'New Blog Post';
+
+		self.registration.showNotification(title, {
+			'body': 'A new blog post is up, check it out!',
+			'icon': 'img/icons/icon144.png'
+		});
 	});
 
 } ());

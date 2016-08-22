@@ -7,6 +7,9 @@
     var subscribeButton = document.querySelector('.button');
     var registerSync = document.querySelector('.register');
 
+
+    /***** Service Worker Registration ****/
+
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js', {
             scope: '/'
@@ -21,6 +24,8 @@
         });
     }
 
+
+    /***** Push Manager registration ****/
     if (subscribeButton) {
 
         subscribeButton.addEventListener('click', function () {
@@ -44,9 +49,9 @@
         }
 
         function unsubscribe() {
-            sub.unsubscribe().then(function (event) {
+            sub.unsubscribe().then(function (e) {
                 subscribeButton.textContent = 'Subscribe';
-                console.log('Unsubscribed!', event);
+                console.log('Unsubscribed!', e);
                 isSubscribed = false;
             }).catch(function (error) {
                 console.log('Error unsubscribing', error);
@@ -55,16 +60,19 @@
         }
     }
 
+    /***** Background Sync Registration ****/
+
     if (registerSync) {
 
-        registerSync.addEventListener('click', function (event) {
-            event.preventDefault();
+        registerSync.addEventListener('click', function (e) {
+            e.preventDefault();
 
             new Promise(function (resolve, reject) {
                 Notification.requestPermission(function (result) {
                     if (result !== 'granted') return reject(Error("Denied notification permission"));
                     resolve();
                 })
+
             }).then(function () {
                 return navigator.serviceWorker.ready;
             }).then(function (reg) {
