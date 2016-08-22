@@ -5,6 +5,7 @@
     var sub;
     var isSubscribed = false;
     var subscribeButton = document.querySelector('.button');
+    var registerSync = document.querySelector('.register');
 
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js', {
@@ -53,5 +54,28 @@
             subscribeButton.textContent = 'Subscribe';
         });
     }
+
+    if (!registerSync)
+        return;
+
+    document.querySelector('.register').addEventListener('click', function(event) {
+      event.preventDefault();
+
+      new Promise(function(resolve, reject) {
+        Notification.requestPermission(function(result) {
+          if (result !== 'granted') return reject(Error("Denied notification permission"));
+          resolve();
+        })
+      }).then(function() {
+        return navigator.serviceWorker.ready;
+      }).then(function(reg) {
+        return reg.sync.register('syncTest');
+      }).then(function() {
+        log('Sync registered');
+      }).catch(function(err) {
+        log('It broke');
+        log(err.message);
+      });
+    });
 
 } ());

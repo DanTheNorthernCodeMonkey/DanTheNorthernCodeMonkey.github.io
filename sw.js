@@ -1,6 +1,9 @@
 (function () {
 
     var self = this;
+
+	//************ App Shell & Versioning ************/
+
 	// These cache names need incrementing on changes happening, make part of a build script.
 	var cacheName = 'appShellV3',
         appShellFiles = [
@@ -29,6 +32,7 @@
 		e.waitUntil(onInstall(e));
 	});
 
+	//************ Destroy old caches ************/
 	self.addEventListener('activate', function (e) {
 		console.log('[ServiceWorker] Activate');
 		e.waitUntil(caches.keys().then(function (keyList) {
@@ -45,6 +49,7 @@
         );
 	});
 
+	//************ Network Intercept  ************/
 	// As the site is static and will not use a proper "App cache" I've opted for 
 	// a simple try cache, if not get then cache strategy. A more complex app will need
 	// a much more complex caching strategy, e.g. per file type, per domain, request type etc.
@@ -80,6 +85,8 @@
         );
 	});
 
+
+	//************ Push Notifications ************/
 	self.addEventListener('push', function (e) {
 		console.log('Push message', e);
 
@@ -119,6 +126,11 @@
 					}
 				})
 		);
+	});
+
+	//************ Background Sync ************/
+	self.addEventListener('sync', function (event) {
+		self.registration.showNotification("Sync event fired!");
 	});
 
 } ());
