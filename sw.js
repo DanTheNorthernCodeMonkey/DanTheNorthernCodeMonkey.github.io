@@ -88,7 +88,7 @@
 		e.waitUntil(
 			self.registration.showNotification(title, {
 				'body': 'A new blog post is up, check it out!',
-				'icon': 'img/icon72.png'
+				'icon': 'img/icons/icon144.png'
 			}));
 	});
 
