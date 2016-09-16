@@ -5,7 +5,7 @@
 	//************ App Shell & Versioning ************/
 
 	// These cache names need incrementing on changes happening, make part of a build script.
-	var cacheName = 'appShellV4',
+	var cacheName = 'appShellV5',
         appShellFiles = [
             // CDNd files, this is fucking horrible, cloudflare CDNs my assets anyway anyway.
             // TODO: Make a gulp build script to consolidate all CSS into one file and all js into one file.
