@@ -17,3 +17,4 @@ test/
 _deploy/*
 Rakefile
 .jekyll-metadata
+node_modules/
