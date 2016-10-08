@@ -6,10 +6,10 @@ var gulp = require('gulp'),
     cleanCss = require('gulp-clean-css'),
     fs = require('fs'),
     paths = {
-        scriptsSource: './_js/**/*.js',
-        scriptsDestination: './js',
-        stylesSource: ['./_css/**/*.css','./_scss/**/*.scss'], 
-        stylesDestination: './css',
+        scriptsSource: './assets/_js/**/*.js',
+        scriptsDestination: './assets/prod/js',
+        stylesSource: ['./assets/_css/**/*.css','./assets/_sass/**/*.scss'], 
+        stylesDestination: './assets/prod/css',
     };
 
 gulp.task('wipe', function () {
@@ -33,34 +33,28 @@ gulp.task('srvCss', function () {
 });
 
 gulp.task('incrementServiceWorkerVersion', function () {
-    var version = "version";
     var fileContent = fs.readFileSync("sw.js", "utf8");
     
     console.log('Read service worker file');
 
-    var versionDeclarationIndex = fileContent.indexOf(version);
-    var serviceWorkerVersonInteger = versionDeclarationIndex + version.length + 3
-    var serviceWorkerVersionDeclaration = fileContent.substring(versionDeclarationIndex, serviceWorkerVersonInteger +1);
+    var regex = /version = (\d*)/g;
+    var result = regex.exec(fileContent);
 
-    console.log(serviceWorkerVersionDeclaration);
+    var temp = result[1];
+    var previousVersionNumber = temp;
+    var newVersionNumber = ++temp;
 
-    var previousVersionNumber = fileContent.charAt(serviceWorkerVersonInteger)
-    var newVersionNumber = previousVersionNumber;
-    ++newVersionNumber;
+    var newVersionStatement = result[0].replace(previousVersionNumber, newVersionNumber);
 
-    var previousVersionStatement = serviceWorkerVersionDeclaration;
-    var newVersionStatment = serviceWorkerVersionDeclaration.replace(previousVersionNumber, newVersionNumber);
+    console.log('Replacing: ' + result[0] + ' with ' + newVersionStatement);
 
-    console.log('version number found');
-    console.log('Replacing: ' + serviceWorkerVersionDeclaration + ' with ' + newVersionStatment);
-
-    fileContent = fileContent.replace(previousVersionStatement, newVersionStatment);
-    console.log('Service worker version upgraded from: ' +  previousVersionNumber + ' to: ' + newVersionNumber);
-
-   console.log(fileContent);
+    fileContent = fileContent.replace(result[0], newVersionStatement);
 
     fs.writeFile('sw.js', fileContent, {flag: 'w'}, function(err) {
-        if (err) throw err;
+        
+        if (err) 
+            throw err;
+
         console.log('file saved');
     });
 });

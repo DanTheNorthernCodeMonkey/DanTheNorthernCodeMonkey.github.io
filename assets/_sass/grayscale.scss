@@ -1,6 +1,3 @@
----
----
-
 @import "variables";
 @import "mixins";
 
@@ -162,9 +159,7 @@ a {
     padding: 100px 0;
     text-align: center;
     color: $intro-text-color;
-    {% if site.background-img %}
-    background: url({{ site.background-img }}) no-repeat bottom center scroll;
-    {% endif %}
+    background: url("/img/marketsquare.jpg") no-repeat bottom center scroll;
     background-color: $header-background-color;
     -webkit-background-size: cover;
     -moz-background-size: cover;
