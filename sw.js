@@ -1,11 +1,12 @@
 (function () {
 
-    var self = this;
+    var self = this,
+		version = 4;
 
 	//************ App Shell & Versioning ************/
 
 	// These cache names need incrementing on changes happening, make part of a build script.
-	var cacheName = 'appShellV5',
+	var cacheName = 'danCodeMonkeyV' + version,
         appShellFiles = [
             // CDNd files, this is fucking horrible, cloudflare CDNs my assets anyway anyway.
             // TODO: Make a gulp build script to consolidate all CSS into one file and all js into one file.
@@ -41,6 +42,10 @@
 			// updating the cache name via versioning will remove the old cache and replace with the new.
 			return Promise.all(keyList.map(function (key) {
 				console.log('[ServiceWorker] Removing old cache', key);
+
+				// TODO: Etag change? If so remove THAT cache.
+
+				
 				if (key !== cacheName) {
 					return caches.delete(key);
 				}
@@ -51,7 +56,7 @@
 
 	//************ Network Intercept  ************/
 	// As the site is static and will not use a proper "App cache" I've opted for 
-	// a simple try cache, if not get then cache strategy. A more complex app will need
+	// a simple try the cache, if not there then network request for it, cache it then return response to user. A more complex app will need
 	// a much more complex caching strategy, e.g. per file type, per domain, request type etc.
 	self.addEventListener('fetch', function (e) {
 
