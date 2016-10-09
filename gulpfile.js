@@ -4,16 +4,18 @@ var gulp = require('gulp'),
     clean = require('gulp-clean'),
     sass = require('gulp-sass'),
     cleanCss = require('gulp-clean-css'),
+    gulpFunction = require('gulp-function'),
+    watch = require('gulp-watch'),
     fs = require('fs'),
     paths = {
         scriptsSource: './assets/_js/**/*.js',
         scriptsDestination: './assets/prod/js',
-        stylesSource: ['./assets/_css/**/*.css','./assets/_sass/**/*.scss'], 
+        stylesSource: ['./assets/_css/**/*.css', './assets/_sass/**/*.scss'],
         stylesDestination: './assets/prod/css',
     };
 
 gulp.task('wipe', function () {
-    return gulp.src(['./css', './js'], {read: false})
+    return gulp.src(['./css', './js'], { read: false })
         .pipe(clean());
 });
 
@@ -28,13 +30,21 @@ gulp.task('srvCss', function () {
     return gulp.src(paths.stylesSource)
         .pipe(sass().on('error', sass.logError))
         .pipe(concat('all.min.css'))
-        .pipe(cleanCss({compatibility: 'ie8'}))
+        .pipe(cleanCss({ compatibility: 'ie8' }))
         .pipe(gulp.dest(paths.stylesDestination));
 });
 
-gulp.task('incrementServiceWorkerVersion', function () {
+gulp.task('sw', function () {
+    return gulpFunction(setServiceWorkerVersion(null));
+});
+
+gulp.task('resetSW', function () {
+    return gulpFunction(setServiceWorkerVersion(0));
+});
+
+function setServiceWorkerVersion(versionNumber) {
     var fileContent = fs.readFileSync("sw.js", "utf8");
-    
+
     console.log('Read service worker file');
 
     var regex = /version = (\d*)/g;
@@ -42,7 +52,7 @@ gulp.task('incrementServiceWorkerVersion', function () {
 
     var temp = result[1];
     var previousVersionNumber = temp;
-    var newVersionNumber = ++temp;
+    var newVersionNumber = versionNumber !== null ? versionNumber : ++temp;
 
     var newVersionStatement = result[0].replace(previousVersionNumber, newVersionNumber);
 
@@ -50,14 +60,20 @@ gulp.task('incrementServiceWorkerVersion', function () {
 
     fileContent = fileContent.replace(result[0], newVersionStatement);
 
-    fs.writeFile('sw.js', fileContent, {flag: 'w'}, function(err) {
-        
-        if (err) 
+    fs.writeFile('sw.js', fileContent, { flag: 'w' }, function (err) {
+
+        if (err)
             throw err;
 
         console.log('file saved');
     });
-});
+}
 
-gulp.task('default', ['wipe', 'srvCss', 'srvJs', 'incrementServiceWorkerVersion']);
+gulp.task('default', ['wipe', 'srvCss', 'srvJs', 'sw']);
+
+gulp.task('dev', function () {
+    return watch('./**/*', function () {
+        return gulpFunction(setServiceWorkerVersion());
+    })
+});
 

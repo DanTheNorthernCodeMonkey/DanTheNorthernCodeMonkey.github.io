@@ -1,5 +1,6 @@
-@import "variables";
-@import "mixins";
+@import "000_mixins";
+@import "001_variables";
+
 
 /*!
  * Start Bootstrap - Grayscale Bootstrap Theme (http://startbootstrap.com)
@@ -272,7 +273,7 @@ a {
             border: 0px;
             margin-bottom: 20px;
             padding: 4px;
-            border: 7px solid #f1f1f1;
+            border: 1px solid #f1f1f1;
             border-radius: 100%;
             background: #f1f1f1;
             color: #fff;
@@ -477,15 +478,25 @@ body {
 }
 
 #panel {
-    background-color: #222;
-    color: #00cdff;
-    border-width: 0px;
+    color: $secondary-color;
+    background-color: $primary-color;
+    border-width: 1px;
+    border-color: #fff;
 }
 
 #button {
-    background-color: #222;
-    color: #00cdff;
-    border-width: 0px;
+    color: $secondary-color;
+    background-color: $primary-color;
+    border-width: 1px;
+    border-color: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    &:hover{
+        color: #000;
+        background-color: $secondary-color;
+        border-width: 1px;
+        border-color: $primary-color
+    }
 }
 
 .inner-shadow {
@@ -503,7 +514,7 @@ div.author img {
             border: 0px;
             margin-bottom: 20px;
             padding: 4px;
-            border: 7px solid #f1f1f1;
+            border: 1px solid #f1f1f1;
             border-radius: 100%;
             background: #f1f1f1;
             color: #fff;
@@ -516,4 +527,10 @@ div.author img {
 
 .panel-body {
     text-align: center;
+}
+
+.pad-top-30 {
+    @media(min-width:992px) {
+       padding-top:60px;
+    }
 }

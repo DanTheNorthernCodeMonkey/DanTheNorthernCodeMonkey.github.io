@@ -1,5 +1,5 @@
-@import "variables";
-@import "mixins";
+@import "000_mixins";
+@import "001_variables";
 
 .timeline {
     position: relative;
@@ -72,15 +72,18 @@
 .img-me {
     z-index: 100;
     left: 0;
-    border: 7px solid #f1f1f1;
+    border: 1px solid #f1f1f1;
     width: 100px;
     height: 100px;
-    margin-left: 0;
     border-radius: 100%;
     text-align: center;
     background: #f1f1f1;
     color: #fff;
-    
+}
+
+.img-me-footer {
+    @extend .img-me;
+    left:0 !important;
 }
 
 .timeline>li .timeline-image h4 {
