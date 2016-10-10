@@ -1,7 +1,7 @@
 (function () {
 
     var self = this,
-		version = 25;
+		version = 26;
 
 	//************ App Shell & Versioning ************/
 
