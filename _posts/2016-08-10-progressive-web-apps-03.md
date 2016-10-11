@@ -6,7 +6,7 @@ category: Progressive Web Apps
 tags: [ 'service-workers', 'PWA',  ]
 ---
 
-## 2. Caching
+## 3. Caching
 
 The service worker offers amazing functionality and control over network requests, but as always, great power requires great responsibility.
 
