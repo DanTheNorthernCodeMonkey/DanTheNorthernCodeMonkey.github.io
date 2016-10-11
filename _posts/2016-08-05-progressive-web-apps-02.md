@@ -110,6 +110,8 @@ Now for the stuff you actually want to know, the gotchas!
 5. I force this with the version number. I have a gulp script that will rewrite that version statement incrementing the number in the process.
 6. You will get fucked by the cache. It happens at times with the normal cache. You change something, refresh, nothing changes. 20 minutes of pulling your hair out and you realise it's the cache. Service workers make this problem worse. With great power comes great responsibility.
 
+If you're doing the workshop the code here will help with completing 001_AppShell
 
+Workshop code: [https://github.com/DanTheNorthernCodeMonkey/ProgressiveWebAppsQuest](https://github.com/DanTheNorthernCodeMonkey/ProgressiveWebAppsQuest)
 
 

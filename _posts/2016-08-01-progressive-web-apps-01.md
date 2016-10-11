@@ -14,7 +14,7 @@ We’ll explore how we can take our web apps offline but most importantly why yo
 
 This series of blog posts will be the written accompiantment for the talks/workshops.
 
-In short the series will emcompass the following:
+In short the series will encompass the following:
 
 1. Manifest - Save to home screen
 2. Service Worker - App Shell
@@ -106,4 +106,8 @@ If you have fallen to the dark side and also have an native/hybrid app then you 
 
 {% endhighlight %}
 
-If you are doing my workshop now is the time to implement this manifest in the sample project in folder 001_manifest. The code above deliberately has the mustache sytnax in, so that you actually have to do some work and not just blindly copy and paste. We're all devs here, we all know that you only learn by paying the pain tax!!!
+If you're doing the workshop the code here will help with completing 000_Manifest
+
+Workshop code: [https://github.com/DanTheNorthernCodeMonkey/ProgressiveWebAppsQuest](https://github.com/DanTheNorthernCodeMonkey/ProgressiveWebAppsQuest)
+
+
