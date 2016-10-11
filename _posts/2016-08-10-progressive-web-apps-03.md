@@ -26,8 +26,6 @@ This strategy works for this site as it's updated fairly infrequently. However i
 
 {% highlight javascript %}
 
-/***** Service Worker Registration ****/
-
     //************ Network Intercept  ************/
         // Try the cache, if not there then network request for it, cache it then return response to user. A more complex app will need
         // a much more complex caching strategy, e.g. per file type, per domain, request type etc.
