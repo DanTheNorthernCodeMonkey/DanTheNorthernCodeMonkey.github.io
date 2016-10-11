@@ -1,16 +1,16 @@
 (function () {
 
     var self = this,
-		version = 27;
+		version = 33;
 
 	//************ App Shell & Versioning ************/
 
 	// These cache names need incrementing on changes happening, make part of a build script.
 	var cacheName = 'danCodeMonkeyV' + version,
         appShellFiles = [
-            "/"
-			// css
-			// js
+            "/",
+			"/assets/prod/all.min.js",
+			"/assets/prod/all.min.css"
         ];
 
 
@@ -103,7 +103,7 @@
 		// Android doesn't close the notification when you click it
 		// See http://crbug.com/463146
 		e.notification.close();
-		var url = 'https://danthenortherncodemonkey.com#latest-post';
+		var url = 'https://dancodemonkey.com#latest-post';
 		// Check if there's already a tab open with this URL.
 		// If yes: focus on the tab.
 		// If no: open a tab with the URL.

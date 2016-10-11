@@ -17,9 +17,9 @@ tags: [ 'Progressive .NET' ]
 
 <h1 class="brand-heading">&nbsp;</h1>
 
- F# seems to be the cool thing these days. A lot of conference talks are on F# and this conference was no different. Not that it's a bad thing, I'm definitely intriqued to learn another language especially when it's in a different paradigm, I'm all about the hipster dev cred.
+ F# seems to be the cool thing these days. A lot of conference talks are on F# and this conference was no different. Not that it's a bad thing, I'm definitely intrigued to learn another language especially when it's in a different paradigm, I'm all about the hipster dev cred.
  
- The session had a scenario wherein we had a robot on Mars that was malfunctioning. It was up to us to get him to send a message through machine learning techniques. This was broken down into 3 solutions, the speaker gave a brief intro before each one and then got us working on them. The format was really engaging, each soluction had a scenario file with code that had blanks that we had to fill in to complete the mission, almost like the comprehension tasks you did back in school: 
+ The session had a scenario wherein we had a robot on Mars that was malfunctioning. It was up to us to get him to send a message through machine learning techniques. This was broken down into 3 solutions, the speaker gave a brief intro before each one and then got us working on them. The format was really engaging, each solution had a scenario file with code that had blanks that we had to fill in to complete the mission, almost like the comprehension tasks you did back in school: 
 
 {% highlight csharp %}
 
@@ -70,7 +70,7 @@ Some of the other attendees had trouble with aspects of the talk. I think this w
 
 My advice to the speaker would be to really fill out the comment blocks further, especially considering the amount of code surrounding the tasks that acted as workflow/helpers. I got the impression that the speaker was slightly concerned that the verbosity of the comments would be detrimental. That's certainly true for an experienced F# / machine learning developer, however that is certainly not the target market for this talk.
 
-Overall I felt that this talk was fun, informative, well structured and a great chance to dabble in F#. I'd definitely recommend attending this talk if it happens at a local meetup for you.
+Overall I felt that this talk was fun, informative, well structured and a great chance to dabble in F#. I'd definitely recommend attending this talk if it happens at a local meet up for you.
 
 Finally the speaker also opened up his training company's private repository for us to download source code tutorials from. This was an excellent move, as the attendees who do the training should have great things to say about FSharp tv.
 
@@ -83,9 +83,9 @@ Finally the speaker also opened up his training company's private repository for
 
 The afternoon was with Phil Trelford, [Dominic Finn](https://twitter.com/CleverFinn?lang=en-gb "Dominic Finn twitter") had told me to absorb all of the knowledges from Trelford. I instantly understood why when I went into his talk, he comes across as very intelligent but also a bit of a joker, someone that you definitely want to learn from.
 
-Trelford's inspiration for this project was when he was trying to teach his son programming with Microsoft's Small Basic and he got frustrated that it did not support arguments in functions. So he decided to make his own Small Basic programming languge with more features, as you do
+Trelford's inspiration for this project was when he was trying to teach his son programming with Microsoft's Small Basic and he got frustrated that it did not support arguments in functions. So he decided to make his own Small Basic programming language with more features, as you do
 
-He brought this completely foreign concept of building a compiler and made it seems ridicously easy. He had us implementing a basic parser in minutes, I was in, 100% well and truely hooked, I wanted all the knowledges, I'd climb Mt. Doom, put up with Sam whining like a bitch the whole way and throw the ring in the lava without a second thought to absorb every ounce of knowledge in this guy's brain.
+He brought this completely foreign concept of building a compiler and made it seems ridiculously easy. He had us implementing a basic parser in minutes, I was in, 100% well and truly hooked, I wanted all the knowledges, I'd climb Mt. Doom, put up with Sam whining like a bitch the whole way and throw the ring in the lava without a second thought to absorb every ounce of knowledge in this guy's brain.
 
 The whole premise behind it being so simple was that Trelford had broken down the problem into smaller subsets, something we all should be doing in our day to day jobs, but is often easier said than done. He also kept breaking down the barriers with statement's like "This stuff is easy, what we do day in day out, UI, networks, users is hard.".
 
@@ -119,7 +119,7 @@ This greatly aided by the [FParsec library](http://www.quanttec.com/fparsec “F
 
 He has also built an IDE with many samples on the windows store, but sadly I was not able to find it. If you want to check it out give him a shout on twitter.
 
-Also the source code to these library’s are not available on his github, he gave us them via usb in the talk so I cannot unfortunately link to them. You can of course attend one of his talks on this topc to get your hands on them :P
+Also the source code to these library’s are not available on his github, he gave us them via usb in the talk so I cannot unfortunately link to them. You can of course attend one of his talks on this topic to get your hands on them :P
 
 After this Trelford told us a story how he was stuck on a train for three hours, so he extended his Small Basic AST & Parser to [implement the C# language](http://trelford.com/blog/post/parsecsharp.aspx), including features that Microsoft started but later dropped. His friend then also [built a compiler for this](https://neildanson.wordpress.com/2014/02/11/building-a-c-compiler-in-f/). 
 

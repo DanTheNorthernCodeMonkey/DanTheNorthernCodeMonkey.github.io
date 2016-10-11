@@ -1,12 +1,16 @@
 ---
 layout: post
 section-type: post
-title: Progressive Web Apps Part 1
+title: Progressive Web Apps Part 1 - Manifest
 category: Progressive Web Apps
 tags: [ 'service-workers', 'PWA',  ]
 ---
 
-Progressive Web Apps are the hot new thing going around at web conferences. So I've jumped on the band wagon and given my own talk on them, hopefull with more practicality.
+Web apps can be pretty cool, but we could be making them even cooler. Browsers are leveling up by adding functionality to enable a user experience akin to using a native mobile application.
+
+Enter the new buzz-phrase of the moment… Progressive Web Apps!
+
+We’ll explore how we can take our web apps offline but most importantly why you should care about this! Features such as service workers, background sync, push notifications, save to homepage and splash screens are pushing forward the frontier of UX in the web.
 
 This series of blog posts will be the written accompiantment for the talks/workshops.
 
@@ -24,7 +28,17 @@ Apps get prime real estate on the users homescreen(s) by having a shiny icon tha
 
 This should immediately shout out that this UX is shit. Not only does the user have no immediate way of getting to your content, they also have the amazing ease of forgetting all about your web app now.
 
-Fear not, the browser devs have done us a solid. Add a manifest file to your web app/site, a few images, link elements, meta element and wala! You can have your very own icon on the users desktop. You even get a nice shiny banner popup asking the user if they would like to add the site to their home screen. However you do not get to control when this will show, you can only delay the popup. The popup will show up on chrome after users visits your site again after 5 minutes.
+Fear not, the browser devs have done us a solid. Add a manifest file to your web app/site, a few images, link elements, meta element and wala! You can have your very own icon on the users desktop. You even get a nice shiny banner popup asking the user if they would like to add the site to their home screen. 
+
+![Add To Home Screen Banner](/img/progressive-web-apps/add-to-home-screen.gif)
+
+source: [https://developers.google.com/web/fundamentals/engage-and-retain/app-install-banners/](https://developers.google.com/web/fundamentals/engage-and-retain/app-install-banners/)
+
+However you do not get to control when this will show, you can only delay the popup. The popup will show up on chrome after users visits your site again after 5 minutes.
+
+A user can also manually add the site to the home screen:
+
+![Add To Home Screen Banner](/img/progressive-web-apps/addToHomeScreen.jpg)
 
 Example Manifest File:
 

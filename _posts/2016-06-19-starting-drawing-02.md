@@ -20,7 +20,7 @@ I also messed the stance and elongated the body. I knew this would be the case f
 <img src="/img/drawing/starting/start-draw-02-small.jpg"/>
 </a>
 
-Luckily I percivered, and managed to get to a state wherby I was happy enough with the finished drawing:
+Luckily I persevered, and managed to get to a state whereby I was happy enough with the finished drawing:
 
 <a href="/img/drawing/starting/start-draw-05.jpg" alt="stage 4 drawing fantasy lady elf warrior">
 <img src="/img/drawing/starting/start-draw-05-small.jpg"/>

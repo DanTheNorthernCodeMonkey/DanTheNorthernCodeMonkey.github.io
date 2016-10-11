@@ -80,8 +80,6 @@
 
     function setupButtons() {
 
-        subscribeButton = document.querySelector('.button');
-
         if (subscribeButton !== null) {
             subscribeButton.addEventListener('click', function () {
                 if (isSubscribed) {

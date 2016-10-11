@@ -11,7 +11,7 @@ tags: [ 'Progressive .NET' ]
 
 I recently attended Progressive .Net Tutorials by Skills Matter. A colleague and I got booked into the conference at super late notice and had to manically rush to find a decent deal for a hotel, most of which had sold out of twin rooms. We discussed broadening the search to include double rooms but sadly the prospect of spooning was not to be, as we lucked out and got a cracking deal on a twin room near kings cross, winning.
 
-Progessive .Net Tutorials was ran over 3 days, with a varying format for each day, but consistently had two talks on at once, meaning we had to split up for the majority of the blocks so that we could get the most out of the conference. 
+Progressive .Net Tutorials was ran over 3 days, with a varying format for each day, but consistently had two talks on at once, meaning we had to split up for the majority of the blocks so that we could get the most out of the conference. 
 
 [Programme details here](https://skillsmatter.com/conferences/7235-progressive-dot-net-tutorials-2016#program)
 
@@ -35,7 +35,7 @@ Skills matter have recently moved digs and they are pretty shweet.
 
 ![Ian's Talk](/img/progressive-dot-net-tutorials/ian-talk-01.jpg)
 
-Main points where timeouts, caching fallbacks, retrys, circuit breakers, decoupling through message busses.
+Main points where timeouts, caching fallbacks, retries, circuit breakers, decoupling through message buses.
 
 This talk was well delivered, well structured and useful. I didn't get as much out of the talk as some of the other attendees may have as I work for a high volume consumer facing tech company, so a lot of the patterns are already in use at UNiDAYS. 
 
@@ -64,7 +64,7 @@ Links to github repo, Ian's twitter and blog:
 
 This talk was probably my favourite of the whole conference. 
 
-Dylan's character provided for a geniunely enteraining delivery. He would most certainly be a bard in an rpg game. The scenarios he set for the tasks where hilarious. The .Net part was a simple clean the house analogy in code, but he soon had us randomly having the washing machine set on fire. The second part was a text adventure using javascript promises to progress. This was great, I have a colleague who loves to write hilarious text adventure games so I thoroughly enjoyed this part.
+Dylan's character provided for a genuinely entertaining delivery. He would most certainly be a bard in an rpg game. The scenarios he set for the tasks where hilarious. The .Net part was a simple clean the house analogy in code, but he soon had us randomly having the washing machine set on fire. The second part was a text adventure using javascript promises to progress. This was great, I have a colleague who loves to write hilarious text adventure games so I thoroughly enjoyed this part.
 
 The talk was relatively high level and I would have loved a longer talk so that we could have got into the gritty stuff, like dead locks, synchronisation context, how the framework breaks up the async await code into multi-methods with call backs etc. But async await is a beast of a subject, and within the time frame it was a good level of detail.
 
