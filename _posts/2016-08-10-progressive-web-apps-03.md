@@ -10,7 +10,7 @@ tags: [ 'service-workers', 'PWA',  ]
 
 The service worker offers amazing functionality and control over network requests, but as always, great power requires great responsibility.
 
-The caching strategy you decide upon will affect the UX, but can also have detrimental effects, getting caught in a state whereby you cannot update your own website properly.
+The caching strategy you decide upon will affect the UX, quicker page loads and the ability to load pages while offline is incredible. However it can also have detrimental effects, getting caught in a state whereby you cannot update your own website properly, if you do not plan appropriately.
 
 If you followed the earlier tasks and set your service worker to delete the old caches when the service worker file changes then you can at least force a reset if you remember to update that file.
 
