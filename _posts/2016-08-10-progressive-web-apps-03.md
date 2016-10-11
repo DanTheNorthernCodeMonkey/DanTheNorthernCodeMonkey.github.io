@@ -1,7 +1,7 @@
 ---
 layout: post
 section-type: post
-title: Progressive Web Apps Part 2 - App Shell
+title: Progressive Web Apps Part 3 - Caching
 category: Progressive Web Apps
 tags: [ 'service-workers', 'PWA',  ]
 ---
