@@ -8,13 +8,15 @@ tags: [ 'service-workers', 'PWA',  ]
 
 ## 2. Caching
 
-The service worker offer amazing functionality and control over network requests, but as always, great power requires great responsibility.
+The service worker offers amazing functionality and control over network requests, but as always, great power requires great responsibility.
 
 The caching strategy you decide upon will affect the UX, but can also have detrimental effects, getting caught in a state whereby you cannot update your own website properly.
 
 If you followed the earlier tasks and set your service worker to delete the old caches when the service worker file changes then you can at least force a reset if you remember to update that file.
 
 There are many, many, many different caching strategies that you can decide to use. Most of them have pros and cons. If you are going to use this on an proper production application then my advice would be to think long and hard about them, pick a mixture that suit per file type, status code, area of your application, perhaps even with multiple caches so that you can have the most control.
+
+Best site to look at different strategies: [https://jakearchibald.com/2014/offline-cookbook/](https://jakearchibald.com/2014/offline-cookbook/)
 
 For the purposes of learning however I have shown the strategy I adopted for this website. I have opted for responding from the cache first. If the requested file is not there then do a network request. Cache the response and serve it.
 
