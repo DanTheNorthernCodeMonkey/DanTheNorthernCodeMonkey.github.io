@@ -18,3 +18,4 @@ _deploy/*
 Rakefile
 .jekyll-metadata
 node_modules/
+.idea/
