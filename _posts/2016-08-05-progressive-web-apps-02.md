@@ -8,6 +8,8 @@ tags: [ 'service-workers', 'PWA',  ]
 
 ## 2. App Shell 
 
+Foreword: *Service workers in production require https, for good reason. You intercept network requests, and serve back what you want, so https is needed for security. You can get away with not having it on localhost.* 
+
 The application (app) shell is the bare minimum needed to load your web application to a user. For my personal site that means the index page, js file and css file.
 
 This application shell is cached by the service worker when it installs. This means that it can be loaded very quickly on subsequent requests, even with poor or no connection.
