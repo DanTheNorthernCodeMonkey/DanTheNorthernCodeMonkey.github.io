@@ -42,6 +42,18 @@ gulp.task('resetSW', function () {
     return gulpFunction(setServiceWorkerVersion(0));
 });
 
+gulp.task('debug', function () {
+     var fileContent = fs.readFileSync("sw.js", "utf8");
+
+     fs.writeFile('sw.js', fileContent, { flag: 'w' }, function (err) {
+
+        if (err)
+            throw err;
+
+        console.log('file saved');
+    });
+});
+
 function setServiceWorkerVersion(versionNumber) {
     var fileContent = fs.readFileSync("sw.js", "utf8");
 

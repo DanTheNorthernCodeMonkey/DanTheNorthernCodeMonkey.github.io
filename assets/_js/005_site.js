@@ -1,31 +1,27 @@
+$(function () {
 
-(function () {
-
-    var reg;
-    var sub;
-    var isSubscribed = false;
-    var subscribeButton = document.querySelector('.button');
-    var registerSync = document.querySelector('.register');
-
-
+    var reg,
+        sub,
+        isSubscribed = false,
+        $subscribeButton = $('.subscribe'),
+        $registerSync = $('.register');
+    
     /***** Service Worker Registration ****/
 
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js', {
             scope: '/'
         }).then(function (registration) {
-            // Registration was successful :)
             console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            
             reg = registration;
+
             setupButtons();
-            if (subscribeButton)
-                subscribeButton.disabled = false;
+
         }).catch(function (err) {
-            // registration failed :(
             console.log('ServiceWorker registration failed: ', err);
         });
     }
-
 
     /***** Push Manager registration ****/
 
@@ -36,26 +32,26 @@
             .then(function (pushSubscription) {
                 sub = pushSubscription;
                 console.log('Subscribed! Endpoint:', sub.endpoint);
-                subscribeButton.textContent = 'Unsubscribe';
+                $subscribeButton.textContent = 'Unsubscribe';
                 isSubscribed = true;
             });
     }
 
     function unsubscribe() {
         sub.unsubscribe().then(function (e) {
-            subscribeButton.textContent = 'Subscribe';
+            $subscribeButton.textContent = 'Subscribe';
             console.log('Unsubscribed!', e);
             isSubscribed = false;
         }).catch(function (error) {
             console.log('Error unsubscribing', error);
-            subscribeButton.textContent = 'Subscribe';
+            $subscribeButton.textContent = 'Subscribe';
         });
     }
 
     /***** Background Sync Registration ****/
 
     function backgroundSync(e) {
-        if (registerSync) {
+        if ($registerSync) {
 
             e.preventDefault();
 
@@ -63,7 +59,7 @@
                 Notification.requestPermission(function (result) {
                     if (result !== 'granted') return reject(Error("Denied notification permission"));
                     resolve();
-                })
+                });
 
             }).then(function () {
                 return navigator.serviceWorker.ready;
@@ -79,9 +75,9 @@
     }
 
     function setupButtons() {
-
-        if (subscribeButton !== null) {
-            subscribeButton.addEventListener('click', function () {
+        
+        if ($subscribeButton.length > 0) {
+            $subscribeButton.on('click', function () {
                 if (isSubscribed) {
                     unsubscribe();
                 } else {
@@ -90,13 +86,10 @@
             });
         }
 
-        registerSync = document.querySelector('.register');
-
-        if (registerSync !== null) {
-            registerSync.addEventListener('click', function (e) {
+        if ($registerSync.length > 0) {
+            $registerSync.on('click', function (e) {
                 backgroundSync(e);
             });
         }
     }
-
-} ());
+});

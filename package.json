@@ -1,0 +1,35 @@
+{
+  "name": "dancodemonkey",
+  "version": "1.0.0",
+  "description": "dancodemonkey personal site",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-concat": "^2.6.0",
+    "gulp-function": "^1.3.6",
+    "gulp-jshint": "^2.0.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.10",
+    "jshint": "^2.9.4"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanTheNorthernCodeMonkey/DanTheNorthernCodeMonkey.github.io.git"
+  },
+  "author": "Dan Shea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanTheNorthernCodeMonkey/DanTheNorthernCodeMonkey.github.io/issues"
+  },
+  "homepage": "https://github.com/DanTheNorthernCodeMonkey/DanTheNorthernCodeMonkey.github.io#readme"
+}

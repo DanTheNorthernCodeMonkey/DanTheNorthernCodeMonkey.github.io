@@ -60,7 +60,7 @@ lines: # You can add HTML Tags in the Text
   - text: "herzlich willkommen"
   - text: "Welkom"
 
-me-img: "/img/profile.jpg"
+me-img: "/img/new-profile.jpg"
 
 ##############################
 # Color the browser elements #
@@ -162,7 +162,7 @@ email: "dan.ian.shea@gmail.com"
 
 # if the author_blurb is not set, then this feature is skipped
 author_blurb: "Dan Shea is a full stack software developer, operating in the UK, trying to save the world one bit at a time."
-author_blurb_image: "/img/profile.jpg"
+author_blurb_image: "/img/new-profile.jpg"
 
 ##################
 # Social Buttons #

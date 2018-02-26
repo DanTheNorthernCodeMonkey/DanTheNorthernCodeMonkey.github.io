@@ -1,142 +1,142 @@
-(function () {
 
-    var self = this,
-		version = 35;
+var self = this,
+	version = 44;
 
-	//************ App Shell & Versioning ************/
+//************ App Shell & Versioning ************/
 
-	// These cache names need incrementing on changes happening, make part of a build script.
-	var cacheName = 'danCodeMonkeyV' + version,
-        appShellFiles = [
-            "/",
-			"/assets/prod/all.min.js",
-			"/assets/prod/all.min.css"
-        ];
+// These cache names need incrementing on changes happening, make part of a build script.
+var cacheName = 'danCodeMonkeyV' + version,
+	appShellFiles = [
+		"/",
+		"/assets/prod/js/all.min.js",
+		"/assets/prod/css/all.min.css"
+	];
 
 
-	self.addEventListener('install', function (e) {
-		console.log('Started', self);
+self.addEventListener('install', function (e) {
+	console.log('Started', self);
 
-		function onInstall() {
-			return caches.open(cacheName)
-                .then(function (cache) {
-					cache.addAll(appShellFiles); // Atomic, one fails, it all fails
-                }).then(self.skipWaiting()); // Older service workers will cause this one to "wait". This skips the waiting stage.
-		}
+	function onInstall() {
+		return caches.open(cacheName)
+			.then(function (cache) {
+				cache.addAll(appShellFiles); // Atomic, one fails, it all fails
+			}).then(self.skipWaiting()); // Older service workers will cause this one to "wait". This skips the waiting stage.
+	}
 
-		e.waitUntil(onInstall(e));
-	});
+	e.waitUntil(onInstall(e));
+});
 
-	//************ Destroy old caches ************/
-	self.addEventListener('activate', function (e) {
-		console.log('[ServiceWorker] Activate');
-		e.waitUntil(caches.keys().then(function (keyList) {
-			// Flushing the old cache here
-			// As it's a static site, a post is the only change, which also updates the index, therefore
-			// updating the cache name via versioning will remove the old cache and replace with the new.
-			return Promise.all(keyList.map(function (key) {
-				console.log('[ServiceWorker] Removing old cache', key);
+//************ Destroy old caches ************/
+self.addEventListener('activate', function (e) {
 
-				// TODO: Etag change? If so remove THAT cache.
+	console.log('[ServiceWorker] Activate');
 
-				
-				if (key !== cacheName) {
-					return caches.delete(key);
-				}
-			}));
-		})
-        );
-	});
+	e.waitUntil(caches.keys().then(function (keyList) {
 
-	//************ Network Intercept  ************/
-	// As the site is static and will not use a proper "App cache" I've opted for 
-	// a simple try the cache, if not there then network request for it, cache it then return response to user. A more complex app will need
-	// a much more complex caching strategy, e.g. per file type, per domain, request type etc.
-	self.addEventListener('fetch', function (e) {
+		// Flushing the old cache here
+		return Promise.all(keyList.map(function (key) {
+			console.log('[ServiceWorker] Removing old cache', key);
 
-		var fetchRequest = e.request.clone();
-		console.log('[ServiceWorker] Fetch', fetchRequest.url);
-		e.respondWith(
-            caches.match(fetchRequest).then(function (response) {
+			if (key !== cacheName) {
+				return caches.delete(key);
+			}
+		}));
 
-				// If cached return straight away
-				if (response)
+	}).then(function () {
+		self.clients.claim(); // Force claim all tabs
+	}));
+});
+
+//************ Network Intercept  ************/
+self.addEventListener('fetch', function (e) {
+
+	var fetchRequest = e.request.clone();
+
+	console.log('[ServiceWorker] Fetch', fetchRequest.url);
+
+	e.respondWith(
+		caches.match(fetchRequest).then(function (response) {
+
+			// If not online return from cache immediately.
+			if (!navigator.onLine){
+				if (response){
 					return response;
+				}
+			}
+			
+			if (e.request.cache === 'only-if-cache') {
+				e.request.mode = 'same-origin';
+			}
 
-				// If not get it, then cache it
-				return fetch(fetchRequest).then(function (response) {
-					return caches.open(cacheName).then(function (cache) {
+			return fetch(fetchRequest).then(function (response) {
+				return caches.open(cacheName).then(function (cache) {
 
-						// On error return the offline page.
-                        // TODO: Make a snake game for offile page.
-						if (!response || response.status !== 200) {
-							caches.match('/').then(function (response) {
-								return response;
-							});
-						}
+					// On error return the offline page.
+					if (!response || response.status !== 200) {
+						caches.match('/').then(function (response) {
+							return response;
+						});
+					}
 
-						cache.put(fetchRequest.url, response.clone());
-						console.log('[ServiceWorker] Fetched & Cached Data');
-						return response;
-					});
+					cache.put(fetchRequest.url, response.clone());
+					console.log('[ServiceWorker] Fetched & Cached Data');
+					return response;
 				});
-            })
-        );
-	});
+			});
+		})
+	);
+});
 
 
-	//************ Push Notifications ************/
-	self.addEventListener('push', function (e) {
-		console.log('Push message', e);
+//************ Push Notifications ************/
+self.addEventListener('push', function (e) {
+	console.log('Push message', e);
 
-		var title = 'New Blog Post';
+	var title = 'New Blog Post';
 
-		e.waitUntil(
-			self.registration.showNotification(title, {
-				'body': 'A new blog post is up, check it out!',
-				'icon': 'img/icons/icon144.png'
-			}));
-	});
-
-	self.addEventListener('notificationclick', function (e) {
-		console.log('Notification click: tag', e.notification.tag);
-		// Android doesn't close the notification when you click it
-		// See http://crbug.com/463146
-		e.notification.close();
-		var url = 'https://dancodemonkey.com#latest-post';
-		// Check if there's already a tab open with this URL.
-		// If yes: focus on the tab.
-		// If no: open a tab with the URL.
-		e.waitUntil(
-			clients.matchAll({
-				type: 'window'
-			})
-				.then(function (windowClients) {
-					console.log('WindowClients', windowClients);
-					for (var i = 0; i < windowClients.length; i++) {
-						var client = windowClients[i];
-						console.log('WindowClient', client);
-						if (client.url === url && 'focus' in client) {
-							return client.focus();
-						}
-					}
-					if (clients.openWindow) {
-						return clients.openWindow(url);
-					}
-				})
-		);
-	});
-
-	//************ Background Sync ************/
-	self.addEventListener('sync', function (e) {
-		console.log('Push message', e);
-
-		var title = 'New Blog Post';
-
+	e.waitUntil(
 		self.registration.showNotification(title, {
 			'body': 'A new blog post is up, check it out!',
 			'icon': 'img/icons/icon144.png'
-		});
-	});
+		}));
+});
 
-} ());
+self.addEventListener('notificationclick', function (e) {
+	console.log('Notification click: tag', e.notification.tag);
+	// Android doesn't close the notification when you click it
+	// See http://crbug.com/463146
+	e.notification.close();
+	var url = 'https://dancodemonkey.com#latest-post';
+	// Check if there's already a tab open with this URL.
+	// If yes: focus on the tab.
+	// If no: open a tab with the URL.
+	e.waitUntil(
+		clients.matchAll({
+			type: 'window'
+		}).then(function (windowClients) {
+				console.log('WindowClients', windowClients);
+				for (var i = 0; i < windowClients.length; i++) {
+					var client = windowClients[i];
+					console.log('WindowClient', client);
+					if (client.url === url && 'focus' in client) {
+						return client.focus();
+					}
+				}
+				if (clients.openWindow) {
+					return clients.openWindow(url);
+				}
+			})
+	);
+});
+
+//************ Background Sync ************/
+self.addEventListener('sync', function (e) {
+	console.log('Push message', e);
+
+	var title = 'New Blog Post';
+
+	self.registration.showNotification(title, {
+		'body': 'A new blog post is up, check it out!',
+		'icon': 'img/icons/icon144.png'
+	});
+});
