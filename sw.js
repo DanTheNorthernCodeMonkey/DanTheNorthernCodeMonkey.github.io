@@ -60,7 +60,7 @@ self.addEventListener('fetch', function (e) {
 		caches.match(fetchRequest).then(function (response) {
 
 			if (CheckDoNotCacheUrls(fetchRequest.url)) {
-				console.log('[ServiceWorker] Do not cache url' + fetchRequest.url);
+				console.log('[ServiceWorker] Do not cache url: ' + fetchRequest.url);
 				fetch(fetchRequest);
 			}
 
