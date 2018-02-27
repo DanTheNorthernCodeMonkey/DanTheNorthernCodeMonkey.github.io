@@ -150,11 +150,10 @@ self.addEventListener('sync', function (e) {
 
 function CheckDoNotCacheUrls(requestUrl) {
 
-	var regex = new RegExp(requestUrl, "g");
+	var matched = doNotCacheUrls.filter(function (doNotCacheUrl) {
 
-	var matched = doNotCacheUrls.filter(function (url) {
-
-		return url.match(regex);
+		var regex = new RegExp(doNotCacheUrl, "g");
+		return requestUrl.match(regex);
 	});
 
 	return matched.length > 0;
