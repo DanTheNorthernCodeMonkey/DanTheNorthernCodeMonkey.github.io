@@ -1,6 +1,6 @@
 
 var self = this,
-	version = 44;
+	version = 45;
 
 //************ App Shell & Versioning ************/
 
@@ -10,8 +10,10 @@ var cacheName = 'danCodeMonkeyV' + version,
 		"/",
 		"/assets/prod/js/all.min.js",
 		"/assets/prod/css/all.min.css"
+	],
+	doNotCacheUrls = [
+		"www.google-analytics.com"
 	];
-
 
 self.addEventListener('install', function (e) {
 	console.log('Started', self);
@@ -57,13 +59,18 @@ self.addEventListener('fetch', function (e) {
 	e.respondWith(
 		caches.match(fetchRequest).then(function (response) {
 
+			if (CheckDoNotCacheUrls(fetchRequest.url)) {
+				console.log('[ServiceWorker] Do not cache url' + fetchRequest.url);
+				fetch(fetchRequest);
+			}
+
 			// If not online return from cache immediately.
-			if (!navigator.onLine){
-				if (response){
+			if (!navigator.onLine) {
+				if (response) {
 					return response;
 				}
 			}
-			
+
 			if (e.request.cache === 'only-if-cache') {
 				e.request.mode = 'same-origin';
 			}
@@ -86,7 +93,6 @@ self.addEventListener('fetch', function (e) {
 		})
 	);
 });
-
 
 //************ Push Notifications ************/
 self.addEventListener('push', function (e) {
@@ -114,18 +120,18 @@ self.addEventListener('notificationclick', function (e) {
 		clients.matchAll({
 			type: 'window'
 		}).then(function (windowClients) {
-				console.log('WindowClients', windowClients);
-				for (var i = 0; i < windowClients.length; i++) {
-					var client = windowClients[i];
-					console.log('WindowClient', client);
-					if (client.url === url && 'focus' in client) {
-						return client.focus();
-					}
+			console.log('WindowClients', windowClients);
+			for (var i = 0; i < windowClients.length; i++) {
+				var client = windowClients[i];
+				console.log('WindowClient', client);
+				if (client.url === url && 'focus' in client) {
+					return client.focus();
 				}
-				if (clients.openWindow) {
-					return clients.openWindow(url);
-				}
-			})
+			}
+			if (clients.openWindow) {
+				return clients.openWindow(url);
+			}
+		})
 	);
 });
 
@@ -140,3 +146,18 @@ self.addEventListener('sync', function (e) {
 		'icon': 'img/icons/icon144.png'
 	});
 });
+
+
+function CheckDoNotCacheUrls(requestUrl) {
+
+	var regex = new RegExp(requestUrl, "g");
+
+	var matched = urls.filter(function (url) {
+
+		return url.match(regex);
+	});
+
+	return matched.length > 0;
+}
+
+
