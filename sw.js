@@ -1,6 +1,6 @@
 
 var self = this,
-	version = 45;
+	version = 46;
 
 //************ App Shell & Versioning ************/
 
@@ -152,7 +152,7 @@ function CheckDoNotCacheUrls(requestUrl) {
 
 	var regex = new RegExp(requestUrl, "g");
 
-	var matched = urls.filter(function (url) {
+	var matched = doNotCacheUrls.filter(function (url) {
 
 		return url.match(regex);
 	});
