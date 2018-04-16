@@ -30,19 +30,19 @@ $(function () {
             .then(function (pushSubscription) {
                 sub = pushSubscription;
                 console.log('Subscribed! Endpoint:', sub.endpoint);
-                $subscribeButton.textContent = 'Unsubscribe';
+                $subscribeButton.text('Unsubscribe');
                 isSubscribed = true;
             });
     }
 
     function unsubscribe() {
         sub.unsubscribe().then(function (e) {
-            $subscribeButton.textContent = 'Subscribe';
+            $subscribeButton.text('Subscribe');
             console.log('Unsubscribed!', e);
             isSubscribed = false;
         }).catch(function (error) {
             console.log('Error unsubscribing', error);
-            $subscribeButton.textContent = 'Subscribe';
+            $subscribeButton.text('Subscribe');
         });
     }
 

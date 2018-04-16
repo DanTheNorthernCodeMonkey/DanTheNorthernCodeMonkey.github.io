@@ -1,6 +1,6 @@
 
 var self = this,
-	version = 52;
+	version = 55;
 
 //************ App Shell & Versioning ************/
 
@@ -21,14 +21,12 @@ var cacheName = 'danCodeMonkeyV' + version,
 self.addEventListener('install', function (e) {
 	console.log('Started', self);
 
-	function onInstall() {
-		return caches.open(cacheName)
-			.then(function (cache) {
-				cache.addAll(appShellFiles); // Atomic, one fails, it all fails
-			}).then(self.skipWaiting()); // Older service workers will cause this one to "wait". This skips the waiting stage.
-	}
-
-	e.waitUntil(onInstall(e));
+	e.waitUntil(caches.open(cacheName)
+		.then(function (cache) {
+			cache.addAll(appShellFiles); // Atomic, one fails, it all fails
+		})
+		.then(self.skipWaiting()) // Older service workers will cause this one to "wait". This skips the waiting stage.
+	);
 });
 
 //************ Destroy old caches ************/
@@ -58,13 +56,13 @@ self.addEventListener('fetch', function (event) {
 	var fetchRequest = event.request.clone();
 
 	console.log('[ServiceWorker] Fetch', fetchRequest.url);
-	
+
 	if (IsIgnoredUrl(fetchRequest.url)) {
 		console.log('[ServiceWorker] Do not cache url: ' + fetchRequest.url);
 		return;
 	}
 
-	if (fetchRequest.cache === 'only-if-cache') {
+	if (fetchRequest.cache === 'only-if-cached') {
 		fetchRequest.mode = 'same-origin';
 	}
 
@@ -72,14 +70,10 @@ self.addEventListener('fetch', function (event) {
 		caches.match(fetchRequest).then(function (response) {
 
 			// If not online return from cache immediately.
-			if (!navigator.onLine) {
-	
-				if (response) {
-					return response;
-				}
-				else {
+			if (!navigator.onLine && response) {
+				return response;
+			} else {
 					// Offline Page
-				}
 			}
 
 			return fetch(fetchRequest).then(function (response) {
@@ -93,7 +87,7 @@ self.addEventListener('fetch', function (event) {
 					}
 
 					cache.put(fetchRequest.url, response.clone());
-					console.log('[ServiceWorker] Fetched & Cached Data');
+					console.log('[ServiceWorker] Fetched & Cached Data: ' + fetchRequest.url);
 					return response;
 				});
 			});
