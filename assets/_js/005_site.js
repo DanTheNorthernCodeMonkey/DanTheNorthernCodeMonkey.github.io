@@ -26,8 +26,6 @@ $(function () {
     /***** Push Manager registration ****/
 
     function subscribe() {
-        // reg = registration event we captured earlier
-        // push manager is the object we need to enable push notifications
         reg.pushManager.subscribe({ userVisibleOnly: true }) // userVisibleOnly = always show
             .then(function (pushSubscription) {
                 sub = pushSubscription;

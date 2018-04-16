@@ -1,6 +1,6 @@
 
 var self = this,
-	version = 46;
+	version = 52;
 
 //************ App Shell & Versioning ************/
 
@@ -9,9 +9,12 @@ var cacheName = 'danCodeMonkeyV' + version,
 	appShellFiles = [
 		"/",
 		"/assets/prod/js/all.min.js",
-		"/assets/prod/css/all.min.css"
+		"/assets/prod/css/all.min.css",
+		"/img/icons/monkey-yellow.svg",
+		"/img/new-profile.jpg",
+		"/img/marketsquare.jpg"
 	],
-	doNotCacheUrls = [
+	ignoredUrls = [
 		"www.google-analytics.com"
 	];
 
@@ -50,37 +53,41 @@ self.addEventListener('activate', function (e) {
 });
 
 //************ Network Intercept  ************/
-self.addEventListener('fetch', function (e) {
+self.addEventListener('fetch', function (event) {
 
-	var fetchRequest = e.request.clone();
+	var fetchRequest = event.request.clone();
 
 	console.log('[ServiceWorker] Fetch', fetchRequest.url);
+	
+	if (IsIgnoredUrl(fetchRequest.url)) {
+		console.log('[ServiceWorker] Do not cache url: ' + fetchRequest.url);
+		return;
+	}
 
-	e.respondWith(
+	if (fetchRequest.cache === 'only-if-cache') {
+		fetchRequest.mode = 'same-origin';
+	}
+
+	event.respondWith(
 		caches.match(fetchRequest).then(function (response) {
-
-			if (CheckDoNotCacheUrls(fetchRequest.url)) {
-				console.log('[ServiceWorker] Do not cache url: ' + fetchRequest.url);
-				fetch(fetchRequest);
-			}
 
 			// If not online return from cache immediately.
 			if (!navigator.onLine) {
+	
 				if (response) {
 					return response;
 				}
-			}
-
-			if (e.request.cache === 'only-if-cache') {
-				e.request.mode = 'same-origin';
+				else {
+					// Offline Page
+				}
 			}
 
 			return fetch(fetchRequest).then(function (response) {
 				return caches.open(cacheName).then(function (cache) {
 
-					// On error return the offline page.
 					if (!response || response.status !== 200) {
 						caches.match('/').then(function (response) {
+							// On error return the offline page.
 							return response;
 						});
 					}
@@ -148,9 +155,9 @@ self.addEventListener('sync', function (e) {
 });
 
 
-function CheckDoNotCacheUrls(requestUrl) {
+function IsIgnoredUrl(requestUrl) {
 
-	var matched = doNotCacheUrls.filter(function (doNotCacheUrl) {
+	var matched = ignoredUrls.filter(function (doNotCacheUrl) {
 
 		var regex = new RegExp(doNotCacheUrl, "g");
 		return requestUrl.match(regex);
